@@ -1,0 +1,25 @@
+.footer-24h-info, .footer-24h-info * {
+    font-size: 12px;
+    line-height: 18px;
+    color: #464646;
+}
+.footer-24h-link .link-adv {
+    padding: 6px 15px;
+    margin: 0 15px 0 0;
+    color: #30811d;
+    border-radius: 8px;
+    border: 1px solid #e1e1e1;
+}
+.footer-24h-link a {
+    padding: 0 15px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #363636;
+}
+.hover-color-24h:hover {
+    color: #78b43d !important;
+}
+.footer-24h-b .icon-vh-24h {
+    width: 88px;
+    height: 42px;
+}
