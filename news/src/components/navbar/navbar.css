@@ -1,0 +1,37 @@
+.menu-24h-main {
+    --bg-menu-header: #78b43d;
+    --bg-click-slide-menu: #fff;
+    --bg-click-slide-menu-close: #78b43d;
+    --hover-link-menu-header: rgb(0,0,0,30%);
+    --hover-link-submenu-header: #78b43d;
+    --border-top-submenu-header: #3c811e;
+    --color-link-submenu-header: #404040;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 36px;
+    background: var(--bg-menu-header);
+    z-index: 9999
+}
+.pos-rel {
+    position: relative;
+}
+.menu-24h-main ul li.icon-home a:hover, .menu-24h-main>.container>ul>li:not(.img-brands,.icon-hum):hover>a {
+    background: var(--hover-link-menu-header);
+}
+.menu-24h-main .click-slide-menu24h {
+    width: 36px;
+    height: 36px;
+}
+.menu-24h-main ul li.icon-home {
+    width: 36px;
+    margin: 0 0 0 15px;
+}
+.menu-24h-main ul li.icon-home svg {
+    width: 16px;
+    height: 16px;
+}
+.col-6{
+    display: none;
+}
