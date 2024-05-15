@@ -11,7 +11,7 @@ const Navbar: React.FC = () => {
                     <ul className="navbar">
                         <li className="dropdown is-first"><a href="https://tienphong.vn"
                                                              title="Trang chủ"><FontAwesomeIcon icon={faHouse}
-                                                                                                className="text-sm w-5 h-5"/></a>
+                                                                                                className="home text-sm w-5 h-5"/></a>
                         </li>
                         <li data-id="2" className="dropdown "><a href="https://tienphong.vn/xa-hoi/"
                                                                  title="Xã hội"><span>Xã hội</span></a>
@@ -253,7 +253,7 @@ const Navbar: React.FC = () => {
                         </li>
                         <li className="dropdown is-last"><a href="javascript:void(0);"
                                                             title="Các chuyên mục khác"><FontAwesomeIcon
-                            icon={faBars}></FontAwesomeIcon></a>
+                            icon={faBars} className="bars text-sm w-5 h-5"></FontAwesomeIcon></a>
                             <ul className="dropdown-content">
                                 <li data-id="220" className=""><a href="https://tienphong.vn/hang-khong-du-lich/"
                                                                   title="Hàng không - Du lịch"><span>Hàng không - Du lịch</span></a>
