@@ -1,25 +1,65 @@
-.footer-24h-info, .footer-24h-info * {
-    font-size: 12px;
-    line-height: 18px;
-    color: #464646;
+.site-footer {
+    margin-top: 3.2rem
 }
-.footer-24h-link .link-adv {
-    padding: 6px 15px;
-    margin: 0 15px 0 0;
-    color: #30811d;
-    border-radius: 8px;
-    border: 1px solid #e1e1e1;
+
+.site-footer .container {
+    padding-top: 1.2rem;
+    padding-bottom: .8rem;
+    border-top: 10px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6
 }
-.footer-24h-link a {
-    padding: 0 15px;
-    font-size: 14px;
-    line-height: 20px;
-    color: #363636;
+
+.site-footer .nav-footer {
+    /*font-size: 1.6rem;*/
+    color: #3b3d3f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-bottom: .8rem;
+    border-bottom: 1px solid #dee2e6
 }
-.hover-color-24h:hover {
-    color: #78b43d !important;
+
+.site-footer .nav-footer a {
+    display: inline-flex;
+    padding: 0 3rem;
+    color: #343a40
 }
-.footer-24h-b .icon-vh-24h {
-    width: 88px;
-    height: 42px;
+
+.site-footer .nav-footer a:hover {
+    color: #a50a02
+}
+
+.site-footer .nav-footer button {
+    position: absolute;
+    right: 0;
+    top: -5px;
+    border: 1px solid #adb5bd;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.site-footer .nav-footer button i {
+    font-size: 20px;
+    margin-left: 1px
+}
+
+.site-footer .nav-footer button:hover {
+    border: 1px solid #a50a02;
+    background-color: #a50a02;
+    color: #fff
+}
+
+.site-footer .footer-info {
+    padding-top: 1.2rem;
+    color: #6c757d
+}
+
+.site-footer .footer-info p {
+    margin-top: 4px
 }
