@@ -1,37 +1,71 @@
-.menu-24h-main {
-    --bg-menu-header: #78b43d;
-    --bg-click-slide-menu: #fff;
-    --bg-click-slide-menu-close: #78b43d;
-    --hover-link-menu-header: rgb(0,0,0,30%);
-    --hover-link-submenu-header: #78b43d;
-    --border-top-submenu-header: #3c811e;
-    --color-link-submenu-header: #404040;
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 36px;
-    background: var(--bg-menu-header);
-    z-index: 9999
+.navbar {
+    height: 55px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.pos-rel {
-    position: relative;
+
+.navbar > li {
+    float: left;
 }
-.menu-24h-main ul li.icon-home a:hover, .menu-24h-main>.container>ul>li:not(.img-brands,.icon-hum):hover>a {
-    background: var(--hover-link-menu-header);
+
+.navbar > li > a {
+    display: block;
+    color: #000000;
+    text-align: center;
+    padding: 20px 10px;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 1rem;
+    font-weight: 600;
 }
-.menu-24h-main .click-slide-menu24h {
-    width: 36px;
-    height: 36px;
+
+.navbar > li > a:hover, .dropdown:hover .dropbtn {
+    color: rgba(165, 10, 2, 1);
 }
-.menu-24h-main ul li.icon-home {
-    width: 36px;
-    margin: 0 0 0 15px;
+
+.dropdown {
+    display: inline-block;
 }
-.menu-24h-main ul li.icon-home svg {
-    width: 16px;
-    height: 16px;
-}
-.col-6{
+
+.dropdown-content {
     display: none;
+    position: absolute;
+    color: rgba(165, 10, 2, 1);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content > li {
+    float: none;
+    color: #ffffff;
+    background-color: rgba(165, 10, 2, 1);
+}
+
+.dropdown-content > li > a {
+    color: #ffffff;
+    padding: 10px 14px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-size: 12px;
+    line-height: 8px;
+    font-weight: 600;
+}
+
+.dropdown-content > li > a:hover {
+    background-color: #7a0101;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    list-style-type: none;
+    padding: 0;
 }
