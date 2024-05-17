@@ -1,5 +1,5 @@
 import $ from 'jquery';
-
+import React, { useEffect } from 'react';
 export function displayTime() {
     console.log("displayTime");
     console.log($("#fulltime"));

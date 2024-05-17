@@ -13,6 +13,7 @@ import Slide from "../slide-header/slider";
 import {displayTime} from "./headerScript";
 
 const Header: React.FC = () => {
+    displayTime();
     return (
         <header className="site-header">
             <div className="header__topbanner">
@@ -80,6 +81,5 @@ const Header: React.FC = () => {
             </div>
         </header>
     );
-    displayTime()
 }
 export default Header;
