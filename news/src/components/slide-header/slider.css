@@ -1,0 +1,41 @@
+
+.site-header__trending {
+    display: flex;
+    align-items: flex-end;
+    height: 25px;
+    margin-top: 50px;
+    padding-bottom: .4rem;
+    justify-content: flex-end;
+    max-width: 700px;
+    float: right;
+    overflow: hidden
+}
+
+.site-header__trending .wrap {
+    max-width: 700px
+}
+
+.site-header__trending .item {
+    float: left;
+    height: 20px;
+    overflow: hidden
+}
+
+.site-header__trending a {
+    display: inline-flex;
+    padding: 0 1.2rem;
+    color: #fff
+}
+
+.site-header__trending a i {
+    margin-right: .4rem;
+    margin-top: .2rem
+}
+
+.site-header__trending a span {
+    display: inline-block;
+    max-width: 350px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
