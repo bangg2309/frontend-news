@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {parseStringPromise} from 'xml2js';
-import {RSSItem} from "../interface/RSSItem";
+import {RSSItem} from "../interfaces/RSSItem";
 
 const RSS_URL = 'https://tienphong.vn/rss/home.rss';
 
