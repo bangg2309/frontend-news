@@ -10,14 +10,14 @@
 }
 
 .site-footer .nav-footer {
-    /*font-size: 1.6rem;*/
+    font-size: 14px;
     color: #3b3d3f;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     padding-bottom: .8rem;
-    border-bottom: 1px solid #dee2e6
+    border-bottom: 1px solid #dee2e6;
 }
 
 .site-footer .nav-footer a {
@@ -56,6 +56,7 @@
 }
 
 .site-footer .footer-info {
+    font-size: 14px;
     padding-top: 1.2rem;
     color: #6c757d
 }
