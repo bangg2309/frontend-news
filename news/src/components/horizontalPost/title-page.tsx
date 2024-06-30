@@ -6,7 +6,7 @@ const TitlePage: React.FC<{ title: string, size: string }> = (props) => {
         <div className="title-page">
             <div className="container font-bold">
                 {/*<ThemeProvider theme={theme}>*/}
-                <h2 className="title-page__title ">
+                <h2 className="title-page__title">
                     <div style={activeStyle(props.size)}>
                         <TextLink context={props.title}/>
                     </div>
@@ -17,9 +17,8 @@ const TitlePage: React.FC<{ title: string, size: string }> = (props) => {
     )
 }
 //active status for the link
-const activeStyle = (size: string) => {
+export const activeStyle = (size: string) => {
     let result = {
-        color: "#2d67ad",
         //set font size with size props}
         fontSize: "1.2rem"
     }
