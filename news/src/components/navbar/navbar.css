@@ -31,9 +31,9 @@ html {
     display: block;
     color: #000000;
     text-align: center;
-    padding: 15px 7px;
+    padding: 18px 7px;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.5rem;
     line-height: 1rem;
     font-weight: 700;
 }
@@ -47,7 +47,6 @@ html {
 }
 
 .dropdown-content {
-    top :100px;
     display: none;
     position: absolute;
     color: rgba(165, 10, 2, 1);
@@ -68,7 +67,7 @@ html {
     text-decoration: none;
     display: block;
     text-align: left;
-    font-size: 1rem;
+    font-size: 1.5rem;
     line-height: 1rem;
     font-weight: 700;
 }

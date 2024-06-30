@@ -15,12 +15,17 @@
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.0",
     "@types/react-slick": "^0.23.13",
+    "axios": "^1.7.2",
+    "buffer": "^6.0.3",
     "jquery": "^3.7.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
     "react-slick": "^0.30.2",
     "slick-carousel": "^1.8.1",
+    "stream": "^0.0.2",
+    "timers": "^0.1.1",
+    "timers-browserify": "^2.0.12",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4",
     "@emotion/react": "^11.11.4",
@@ -54,6 +59,7 @@
     ]
   },
   "devDependencies": {
+    "@types/xml2js": "^0.4.14",
     "tailwindcss": "^3.4.3"
   }
 }

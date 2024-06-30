@@ -5,7 +5,7 @@ import {faAngleUp} from "@fortawesome/free-solid-svg-icons";
 
 const Footer: React.FC = () => {
     return (
-        <footer className="site-footer max-w-7xl m-auto">
+        <footer className="site-footer m-auto">
             <div className="container">
                 <div className="nav-footer">
                     <a href="https://tienphong.vn/contact.tpo" title="Liên hệ">TOÀ SOẠN</a>
