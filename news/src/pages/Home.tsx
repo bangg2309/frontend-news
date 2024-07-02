@@ -5,7 +5,7 @@ import Footer from "../components/footer/Footer";
 import Navbar from "../components/navbar/Navbar";
 import MainContent from "./MainContent";
 import {CssBaseline, StyledEngineProvider, ThemeProvider} from "@mui/material";
-import TitlePage from "../components/horizontalPost/title-page";
+import TitlePage from "../components/post/TitlePage";
 import light from "../components/theme/theme";
 
 const HomePage: React.FC = () => {

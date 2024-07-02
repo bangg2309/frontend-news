@@ -4,7 +4,7 @@ class MainContent extends React.Component {
     render() {
         return (
        <>
-        <CategoryContent />
+        <CategoryContent/>
        </>
         );
     }

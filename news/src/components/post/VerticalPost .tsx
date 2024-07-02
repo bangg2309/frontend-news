@@ -1,31 +1,30 @@
 import React from "react";
 import NewsType from "./category-new";
-import TitlePage from "./title-page";
+import TitlePage from "./TitlePage";
 import DescriptionPost from "./description-post";
 import {Box, Grid} from "@mui/material";
-import PostAvt from "./post-avt";
+import PostAvt from "./PostAvt";
+import {NewsView} from "../../interfaces/NewsView";
 
-const HorizonePost: React.FC<{
-    type: string, url: string,
-    title: string, size: string, description: string
+const VerticalPost: React.FC<{
+    NewsView: NewsView;
+    titleSize: string ;
 }> = (props) => {
     return (
-        <a href={props.url}>
+        <a href={props.NewsView.link}>
 
-            <div className={"flex flex-row justify-between align-middle mb-10"}>
-                <Box sx={{width: 240}}>
+                <Box sx={{maxWidth:500}}>
                     <PostAvt
                         src={"https://static-images.vnncdn.net/vps_images_publish/000001/000003/2024/6/30/2024-2130.jpg?width=260&s=AMJjHYGtI2xZMpJ8m5Wejg"}/>
                 </Box>
                 <div className={"flex-col ml-2.5"}>
-                <NewsType name={props.type} url={props.url}/>
-                <TitlePage title={props.title} size={props.size}/>
+                <NewsType name={props.NewsView.category.name} url={props.NewsView.category.url}/>
+                <TitlePage title={props.NewsView.title} size={props.titleSize}/>
                 <DescriptionPost
-                    description={props.description}/>
+                    description={props.NewsView.description}/>
                 </div>
-            </div>
         </a>
     );
 }
 
-export default HorizonePost;
+export default VerticalPost;
