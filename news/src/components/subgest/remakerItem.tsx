@@ -22,7 +22,7 @@ const RemakerItem: React.FC<RemakerItemProps> = ({remaker}) => {
                 </Box>
                 <div className="remaker-item-content">
                     <NewsType name={remaker.type}/>
-                    <TitlePage title={remaker.title} />
+                    {/*<TitlePage title={remaker.title} />*/}
                 </div>
             </div>
         </a>

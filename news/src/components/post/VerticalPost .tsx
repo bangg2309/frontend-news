@@ -1,29 +1,33 @@
 import React from "react";
 import NewsType from "./category-new";
-import TitlePage from "./TitlePage";
-import DescriptionPost from "./description-post";
-import {Box, Grid} from "@mui/material";
-import PostAvt from "./PostAvt";
+import {Card, CardActionArea, CardContent, CardMedia, styled, Typography} from "@mui/material";
 import {NewsView} from "../../interfaces/NewsView";
+import {NavLink} from "react-router-dom";
+import shadows from "@mui/material/styles/shadows";
 
-const VerticalPost: React.FC<{
-    NewsView: NewsView;
-    titleSize: string ;
-}> = (props) => {
+const VerticalPost: React.FC<{NewsView: NewsView;titleSize: string;}> = (props) => {
     return (
-        <a href={props.NewsView.link}>
-
-                <Box sx={{maxWidth:500}}>
-                    <PostAvt
-                        src={"https://static-images.vnncdn.net/vps_images_publish/000001/000003/2024/6/30/2024-2130.jpg?width=260&s=AMJjHYGtI2xZMpJ8m5Wejg"}/>
-                </Box>
-                <div className={"flex-col ml-2.5"}>
-                <NewsType name={props.NewsView.category.name} url={props.NewsView.category.url}/>
-                <TitlePage title={props.NewsView.title} size={props.titleSize}/>
-                <DescriptionPost
-                    description={props.NewsView.description}/>
-                </div>
-        </a>
+        <Card component={NavLink} to={props.NewsView.link}>
+            <CardActionArea>
+                <CardMedia
+                    component="img"
+                    width="100%"
+                    image={props.NewsView.src}
+                    alt={props.NewsView.title}
+                />
+                <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                        <NewsType name={props.NewsView.category.name}/>
+                    </Typography>
+                    <Typography gutterBottom fontWeight={600} variant="h4" component="div">
+                        {props.NewsView.title}
+                    </Typography>
+                    <Typography variant="h5" color="text.secondary">
+                        {props.NewsView.description}
+                    </Typography>
+                </CardContent>
+            </CardActionArea>
+        </Card>
     );
 }
 
