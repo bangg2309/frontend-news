@@ -11,13 +11,13 @@ import light from "../components/theme/theme";
 const HomePage: React.FC = () => {
     return (
         <React.StrictMode>
-            <ThemeProvider theme={light}>
-                <CssBaseline/>
-                {/*<Header/>*/}
-                {/*<Navbar/>*/}
+            {/*<ThemeProvider theme={light}>*/}
+            {/*    <CssBaseline/>*/}
+            {/*    <Header/>*/}
+            {/*    <Navbar/>*/}
                 <MainContent/>
                 {/*<Footer/>*/}
-            </ThemeProvider>
+            {/*</ThemeProvider>*/}
         </React.StrictMode>
     );
 };
