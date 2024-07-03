@@ -1,71 +1,50 @@
 import React from 'react';
-import {createTheme, experimental_extendTheme} from "@mui/material/styles";
+import {createTheme, experimental_extendTheme as extendTheme} from "@mui/material/styles";
 import {blue, red} from "@mui/material/colors";
 import {hover} from "@testing-library/user-event/dist/hover";
 
-declare module '@mui/material/Button' {
-    interface ButtonPropsVariantOverrides {
-        link: true;
-    }
-}
-const light = createTheme({
-    // typography: {
-    //     fontFamily: [
-    //         'Roboto',
-    //         'sans-serif',
-    //     ].join(','),
-    // },
-
-    palette: {
-        mode: 'light',
-    },
-    components: {
-        MuiButton: {
-            // variants: [
-            //     {
-            //         props: {variant: 'text'},
-            //         style: {
-            //             color: "black",
-            //             '&:hover': {
-            //                 color: '#2d67ad',
-            //                 backgroundColor: 'transparent',
-            //             },
-            //
-            //         },
-            //     },
-            // ],
-            // styleOverrides: {
-            //     root: {
-            //         textTransform: 'none',
-            //     },
-            // },
-        },
-    }
-    //     MuiTypography: {
-    //         styleOverrides: {
-    //             root: {
-    //                 fontFamily: 'Roboto',
-    //             },
-    //         },
-    //     },
-    //     MuiCssBaseline: {
-    //         styleOverrides: {
-    //             '@global': {
-    //                 body: {
-    //                     fontFamily: 'Roboto',
-    //                 },
-    //             },
-    //         },
-    //     },
-    //
-    // },
-})
-const dark = createTheme({})
-
-const theme = experimental_extendTheme({
+const theme = extendTheme({
     colorSchemes: {
-        light: light,
-        dark: dark,
+        light: {
+            palette: {
+                primary: {
+                    main: "#2d67ad",
+                    light: blue[300],
+                    dark: blue[700],
+                },
+                divider: "#2d67ad",
+            },
+        },
+        dark: {
+            palette: {
+                primary: {
+                    main: "#2d67ad",
+                    light: blue[300],
+                    dark: blue[700],
+                },
+                background:{
+                    default:'rgb(27,27,27)'
+                }
+            },
+        },
+    },
+    components:{
+        MuiCardMedia:{
+            styleOverrides:{
+                root:{
+                    borderRadius:'4px'
+                }
+            }
+        },
+        MuiCard:{
+            styleOverrides:{
+                root:{
+                    padding: '2px 2px',
+                    borderRadius:'8px'
+                }
+            }
+        }
     }
 });
-export default light;
+
+export default theme;

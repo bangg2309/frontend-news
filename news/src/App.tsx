@@ -1,20 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import HomePage from './pages/Home';
+import {Route, Routes} from "react-router-dom";
+import CategoryContent from "./components/category/CategoryContent";
 
 function App() {
     return (
-        <div className="App ml-auto mr-auto" style={style}>
-            <HomePage/>
-        </div>
-
+            <Routes>
+                <Route path="/" element={<HomePage/>}>
+                    <Route index element={<CategoryContent/>}/>
+                </Route>
+            </Routes>
+    // </Container>
     );
 }
 
-const style = {
-    background: '#fff',
-    maxWidth: 1140,
-}
 
 export default App;

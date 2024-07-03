@@ -3,22 +3,19 @@ import React from "react";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import Navbar from "../components/navbar/Navbar";
-import MainContent from "./MainContent";
-import {CssBaseline, StyledEngineProvider, ThemeProvider} from "@mui/material";
-import TitlePage from "../components/horizontalPost/title-page";
-import light from "../components/theme/theme";
+import {Outlet} from "react-router-dom";
+import {Container} from "@mui/material";
 
 const HomePage: React.FC = () => {
-    return (
-        <React.StrictMode>
-            {/*<ThemeProvider theme={light}>*/}
-            {/*    <CssBaseline/>*/}
-            {/*    <Header/>*/}
-            {/*    <Navbar/>*/}
-                <MainContent/>
-                {/*<Footer/>*/}
-            {/*</ThemeProvider>*/}
-        </React.StrictMode>
+    return (<>
+            <Header/>
+            <Navbar/>
+            <Container maxWidth={"lg"}>
+                <Outlet/>
+            </Container>
+            {/*    <MainContent/>*/}
+            <Footer/>
+        </>
     );
 };
 

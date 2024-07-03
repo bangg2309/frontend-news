@@ -1,7 +1,7 @@
 import React from "react";
-import PostAvt from "../horizontalPost/post-avt";
-import TitlePage from "../horizontalPost/title-page";
-import NewsType from "../horizontalPost/category-new";
+import PostAvt from "../post/PostAvt";
+import TitlePage from "../post/TitlePage";
+import NewsType from "../post/category-new";
 import {Box} from "@mui/material";
 
 type RemakerItemProps = {
