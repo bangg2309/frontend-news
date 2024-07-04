@@ -10,8 +10,8 @@ function App() {
         <Router>
             <Routes>
                 <Route path="/" element={<HomePage/>}>
-                    <Route index element={<CategoryContent/>}/>
-                    {/*<Route index element={<HomeContent/>}/>*/}
+                    {/*<Route index element={<CategoryContent/>}/>*/}
+                    <Route index element={<HomeContent/>}/>
                 </Route>
             </Routes>
         </Router>
