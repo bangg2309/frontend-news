@@ -1,11 +1,11 @@
 import React from "react";
-import {Grid, Stack} from "@mui/material";
+import {Divider, Grid, Stack} from "@mui/material";
 import VerticalPost from "../post/VerticalPost ";
 import SectionTopStory2th from "./SectionTopStory2th";
 import {NewsView} from "../../interfaces/NewsView";
 import TopStorySmall from "./TopStorySmall";
 
-const bigPost:{NewsView:NewsView} = {
+const bigPost: { NewsView: NewsView } = {
     NewsView: {
         link: "https://www.google.com",
         category: {
@@ -63,27 +63,28 @@ const list3th = [
 const SectionTopStory: React.FC<{ item: {} }> = ({item}) => {
     return (
         <>
-            <Grid container spacing={2}>
-                <Grid item xs={4}>
+            <Stack direction="row" spacing={2} divider={<Divider orientation="vertical" flexItem/>}>
+                <Grid item xs={3}>
                     <Stack>
                         {list6th.map((item, index) => (
                             <SectionTopStory2th item={item} key={index}/>
                         ))}
                     </Stack>
                 </Grid>
-                <Grid item xs={5} sx={{ borderLeft: '1px solid #d9d9d9',
-                    borderRight: '1px solid #d9d9d9',
-                    paddingLeft: 2,
-                    paddingRight: 2, }}>
-                    <VerticalPost NewsView={bigPost.NewsView} titleSize={'lg'}
-                    />
-                    <Grid container spacing={6}>
-                        {list3th.map((item, index) => (
-                            <Grid item xs={6} key={index}>
-                                <TopStorySmall item={item}/>
-                            </Grid>
-                        ))}
-                    </Grid>
+                <Grid item xs={5}>
+                    <Stack direction="column" spacing={2} divider={<Divider orientation="horizontal" flexItem />}>
+                        <VerticalPost NewsView={bigPost.NewsView} titleSize={'lg'}
+                        />
+                        <Grid item>
+                            <Stack direction="row" spacing={2} divider={<Divider orientation="vertical" flexItem/>}>
+                                {list3th.map((item, index) => (
+                                    // <Grid item xs={5} key={index}>
+                                    <TopStorySmall item={item}/>
+                                    // </Grid>
+                                ))}
+                            </Stack>
+                        </Grid>
+                    </Stack>
                 </Grid>
                 <Grid item xs={3}>
                     <Stack>
@@ -92,7 +93,7 @@ const SectionTopStory: React.FC<{ item: {} }> = ({item}) => {
                         ))}
                     </Stack>
                 </Grid>
-            </Grid>
+            </Stack>
 
             <Grid container spacing={2}>
                 {list3th.map((item, index) => (
