@@ -15,7 +15,7 @@ const CategoryContent: React.FC = () => {
         <>
             {/*<Breedcrumb title={"THỜI SỰ"}/>*/}
             <Grid container spacing={2}>
-                <Grid item xs={9}>
+                <Grid item xs={12}>
                     <SectionTopStory item={{}}/>
                 </Grid>
                 <Grid item xs={3}>

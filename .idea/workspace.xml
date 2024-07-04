@@ -7,12 +7,11 @@
     <list default="true" id="de5d252a-db4c-43a4-b290-661b18473661" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/news/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/news/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news/src/components/home/HomeContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/news/src/components/home/HomeContent.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/news/src/components/navbar/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/news/src/components/navbar/Navbar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/news/src/components/navbar/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/news/src/components/navbar/navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news/src/components/post/PostAvt.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/news/src/components/post/PostAvt.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news/src/components/post/TitlePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/news/src/components/post/TitlePage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news/src/components/post/VerticalPost .tsx" beforeDir="false" afterPath="$PROJECT_DIR$/news/src/components/post/VerticalPost .tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news/src/components/top-story/TopStorySmall.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/news/src/components/top-story/TopStorySmall.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news/src/components/top-story/SectionTopStory.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/news/src/components/top-story/SectionTopStory.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news/src/components/top-story/SectionTopStory2th.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/news/src/components/top-story/SectionTopStory2th.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/news/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/news/src/pages/Home.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,7 +106,7 @@
       <workItem from="1719777800118" duration="8891000" />
       <workItem from="1719801550985" duration="1350000" />
       <workItem from="1720014589401" duration="3507000" />
-      <workItem from="1720018181207" duration="10255000" />
+      <workItem from="1720018181207" duration="12463000" />
     </task>
     <servers />
   </component>
