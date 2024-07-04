@@ -17,7 +17,7 @@ const TopStorySmall: React.FC<TopStorySmallProps> = ({item}) => {
             <Stack className={"mb-8"} >
                 <a href={item.url}>
                     <PostAvt src={item.src} />
-                    <TitlePage title={item.title} size={"text-sm"} />
+                    <TitlePage title={item.title.toUpperCase()} size={"text-sm"} />
                 </a>
             </Stack>
             </>

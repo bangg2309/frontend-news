@@ -12,7 +12,7 @@ import ModeToggle from "../theme/toggleTheme";
 const CategoryContent: React.FC = () => {
     return (
         <>
-            <Breedcrumb title={"THỜI SỰ"}/>
+            {/*<Breedcrumb title={"THỜI SỰ"}/>*/}
             <Grid container spacing={2}>
                 <Grid item xs={9}>
                     <TopStory item={{}}/>
@@ -43,7 +43,7 @@ const CategoryContent: React.FC = () => {
                                   type={"THỜI SỰ"} url={"#"}/>
                 </Grid>
                 <Grid item xs={3}>
-                    <ModeToggle/>
+                    {/*<ModeToggle/>*/}
                 </Grid>
             </Grid>
         </>

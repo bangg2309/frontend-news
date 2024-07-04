@@ -1,22 +1,40 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import TextLink from "../text/link";
-// import theme from "../../theme/theme";
-const TitlePage: React.FC<{ title: string, size?: string }> = (props) => {
+
+type TitlePageProps = {
+    title: string;
+    size?: string;
+    fontWeight?: 'bold' | 'medium' | 'light';
+};
+
+const TitlePage: React.FC<TitlePageProps> = ({ title, size, fontWeight = 'bold' }) => {
     return (
         <div className="title-page">
-            <div className="container font-bold">
-                {/*<ThemeProvider theme={theme}>*/}
+            <div className="container" style={{ fontWeight: getFontWeight(fontWeight) }}>
                 <h2 className="title-page__title">
-                    <div style={activeStyle(props.size)} >
-                        <TextLink context={props.title.toUpperCase()}/>
+                    <div style={activeStyle(size)}>
+                        <TextLink context={toUpperCaseOrLowerCase(title)} />
                     </div>
                 </h2>
                 {/*</ThemeProvider>*/}
             </div>
         </div>
-    )
-}
-//active status for the link
+    );
+};
+// Function to get the correct font weight
+const getFontWeight = (weight: 'bold' | 'medium' | 'light') => {
+    switch (weight) {
+        case 'medium':
+            return 400;
+        case 'light':
+            return 300;
+        case 'bold':
+        default:
+            return 700;
+    }
+};
+
+// Active status for the link
 export const activeStyle = (size?: string) => {
     let result = {
         //set font size with size props}
@@ -31,9 +49,18 @@ export const activeStyle = (size?: string) => {
     } else if (size === "md") {
         result = {
             ...result,
-            fontSize: "`8px"
+            fontSize: "`13px"
         }
     }
     return result;
-}
+};
+
+export const toUpperCaseOrLowerCase = (title: string) => {
+    if (title === title.toLowerCase()) {
+        return title.toLowerCase();
+    } else {
+        return title.toUpperCase();
+    }
+};
+
 export default TitlePage;
