@@ -1,37 +1,31 @@
 import React from "react";
-import {Card, CardActionArea, CardContent, CardMedia, Grid, Typography} from "@mui/material";
+import {Card, CardActionArea, CardContent, CardMedia, Grid, Stack, Typography} from "@mui/material";
+import {NewsView} from "../../interfaces/NewsView";
+import NewsType from "./category-new";
+import TitlePage from "./TitlePage";
 
 const HorizonePost: React.FC<{
-    type: string, url: string,
-    title: string, size: string, description: string
+    NewsView: NewsView, titleSize: string,
 }> = (props) => {
     return (
-        <Card>
+        <Card sx={{boxShadow: 'unset'}} className={"mb-2"}>
             <CardActionArea>
-                <Grid container spacing={2}>
-                    <Grid item xs={4}>
-                        <CardMedia
-                            component="img"
-                            height="140"
-                            image={props.url}
-                            alt="green iguana"
-                        />
-                    </Grid>
-                    <Grid item xs={8}>
+                <Stack direction={'row'}>
+                    <CardMedia
+                        sx={{width: "100%", maxWidth: 280, margin: "16px"}}
+                        component="img"
+                        image={props.NewsView.src}
+                        alt={props.NewsView.title}
+                    />
                     <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                            Lizard
-                        </Typography>
-                        <Typography gutterBottom variant="h5" component="div">
-                            Lizard
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                            Lizards are a widespread group of squamate reptiles, with over 6,000
-                            species, ranging across all continents except Antarctica
+                        <NewsType url={props.NewsView.category.url} name={props.NewsView.category.name}
+                                  variant={"subtitle1"}/>
+                        <TitlePage title={props.NewsView.title} size={"h6"} url={props.NewsView.link}/>
+                        <Typography variant="subtitle1" color="text.secondary">
+                            {props.NewsView.description}
                         </Typography>
                     </CardContent>
-                    </Grid>
-                </Grid>
+                </Stack>
             </CardActionArea>
         </Card>
         // <a href={props.url}>

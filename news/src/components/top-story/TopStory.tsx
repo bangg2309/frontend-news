@@ -49,10 +49,10 @@ const list3th = [
 const TopStory: React.FC<{ item: {} }> = ({item}) => {
     return (
         <>
-            <Grid container spacing={2}>
+            <Grid container spacing={1}>
                 <Grid item xs={8}>
-                    <Stack>
-                        <VerticalPost NewsView={bigPost.NewsView} titleSize={'lg'}
+                    <Stack >
+                        <VerticalPost NewsView={bigPost.NewsView}
                         />
                     </Stack>
                 </Grid>
@@ -64,13 +64,10 @@ const TopStory: React.FC<{ item: {} }> = ({item}) => {
                     </Stack>
                 </Grid>
             </Grid>
-
-            <Grid container spacing={2}>
+            <Grid container spacing={1}>
                 {list3th.map((item, index) => (
                     <Grid item xs={4} key={index}>
-                        <Stack>
                             <TopStorySmall item={item}/>
-                        </Stack>
                     </Grid>
                 ))}
             </Grid>

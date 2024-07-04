@@ -3,6 +3,8 @@ import {Card, CardActionArea, CardContent, CardMedia, styled} from "@mui/materia
 import TitlePage from "../post/TitlePage";
 import {NavLink} from "react-router-dom";
 import {motion} from 'framer-motion';
+import shadows from "@mui/material/styles/shadows";
+import {MAIN_CONCEPT} from "../theme/theme";
 
 type TopStorySmallProps = {
     item: {
@@ -14,8 +16,8 @@ type TopStorySmallProps = {
 
 const TopStorySmall: React.FC<TopStorySmallProps> = ({item}) => {
     return (
-        <Card component={NavLink}  to={item.url} className={'mb-2 p-2'}>
-            <StyleCard>
+        <Card component={NavLink} sx={{boxShadow: 'unset', padding: 0}} to={item.url} className={'mb-2 p-2 '}>
+            {/*<StyleCard>*/}
                 <CardActionArea>
                     <CardMedia
                         component="img"
@@ -24,19 +26,20 @@ const TopStorySmall: React.FC<TopStorySmallProps> = ({item}) => {
                         alt={item.title}
 
                     />
-                    <CardContent color={'inherit'} id={'content'}>
-                        <TitlePage title={item.title} size={'h5'} url={item.url}/>
+                    <CardContent color={'inherit'}>
+                        <TitlePage title={item.title} size={'body1'} url={item.url}/>
                     </CardContent>
                 </CardActionArea>
-            </StyleCard>
+            {/*</StyleCard>*/}
         </Card>
         // </motion.div>
     )
 }
 export const StyleCard = styled("div")(({theme}) => ({
     '&:hover': {
-       textDecoration: "underline"
+        color: MAIN_CONCEPT.main
+        // textDecoration: "underline"
     },
-    maxWidth: 345, mb: 2
+    mb: 2,
 }))
 export default TopStorySmall;

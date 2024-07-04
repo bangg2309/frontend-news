@@ -11,28 +11,43 @@ const BoxRemaker: React.FC = (props) => {
                 <RemakerItem remaker={{
                     url: "#",
                     title: "Tài xế ô tô Land Cruiser bị dừng xe ở trạm thu phí, lộ việc gắn biển 80B giả",
-                    type: "AN TOÀN GIAO THÔNG",
+
+                    type: {
+                        name: "Thời sự",
+                        url: "#",
+                    },
                     src: "https://static-images.vnncdn.net/vps_images_publish/000001/000003/2024/6/30/tai-xe-o-to-land-cruiser-bi-dung-xe-o-tram-thu-phi-lo-viec-gan-bien-80b-gia-1531.jpg?width=360&s=cPfVOYi4wKME8oZ0mDA_lg"
                 }
                 }/>
                 <RemakerItem remaker={{
                     url: "#",
                     title: "Tài xế ô tô Land Cruiser bị dừng xe ở trạm thu phí, lộ việc gắn biển 80B giả",
-                    type: "AN TOÀN GIAO THÔNG",
+
+                    type: {
+                        name: "Thời sự",
+                        url: "#",
+                    },
                     src: "https://static-images.vnncdn.net/vps_images_publish/000001/000003/2024/6/30/tai-xe-o-to-land-cruiser-bi-dung-xe-o-tram-thu-phi-lo-viec-gan-bien-80b-gia-1531.jpg?width=360&s=cPfVOYi4wKME8oZ0mDA_lg"
                 }
                 }/>
                 <RemakerItem remaker={{
                     url: "#",
                     title: "Tài xế ô tô Land Cruiser bị dừng xe ở trạm thu phí, lộ việc gắn biển 80B giả",
-                    type: "AN TOÀN GIAO THÔNG",
+
+                    type: {
+                        name: "Thời sự",
+                        url: "#",
+                    },
                     src: "https://static-images.vnncdn.net/vps_images_publish/000001/000003/2024/6/30/tai-xe-o-to-land-cruiser-bi-dung-xe-o-tram-thu-phi-lo-viec-gan-bien-80b-gia-1531.jpg?width=360&s=cPfVOYi4wKME8oZ0mDA_lg"
                 }
                 }/>
                 <RemakerItem remaker={{
                     url: "#",
                     title: "Tài xế ô tô Land Cruiser bị dừng xe ở trạm thu phí, lộ việc gắn biển 80B giả",
-                    type: "AN TOÀN GIAO THÔNG",
+                    type: {
+                        name: "Thời sự",
+                        url: "#",
+                    },
                     src: "https://static-images.vnncdn.net/vps_images_publish/000001/000003/2024/6/30/tai-xe-o-to-land-cruiser-bi-dung-xe-o-tram-thu-phi-lo-viec-gan-bien-80b-gia-1531.jpg?width=360&s=cPfVOYi4wKME8oZ0mDA_lg"
                 }
                 }/>

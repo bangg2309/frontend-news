@@ -4,31 +4,34 @@ import {Card, CardActionArea, CardContent, CardMedia, styled, Typography} from "
 import {NewsView} from "../../interfaces/NewsView";
 import {NavLink} from "react-router-dom";
 import shadows from "@mui/material/styles/shadows";
+import TitlePage from "./TitlePage";
 
-const VerticalPost: React.FC<{NewsView: NewsView;titleSize: string;}> = (props) => {
+const VerticalPost: React.FC<{ NewsView: NewsView }> = (props) => {
     return (
-        <Card component={NavLink} to={props.NewsView.link}>
-            <CardActionArea>
-                <CardMedia
-                    component="img"
-                    width="100%"
-                    image={props.NewsView.src}
-                    alt={props.NewsView.title}
-                />
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        <NewsType name={props.NewsView.category.name}/>
-                    </Typography>
-                    <Typography gutterBottom fontWeight={600} variant="h4" component="div">
-                        {props.NewsView.title}
-                    </Typography>
-                    <Typography variant="h5" color="text.secondary">
-                        {props.NewsView.description}
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
-        </Card>
+            <Card sx={{boxShadow: 'unset', padding: 0}} component={NavLink} to={props.NewsView.link}>
+                <CardActionArea>
+
+                    <CardMedia
+                        component="img"
+                        image={props.NewsView.src}
+                        alt={props.NewsView.title}
+                    />
+                    <CardContent className={""}>
+                        {/*<Typography gutterBottom variant="h5" component="div">*/}
+                        {/*    <NewsType name={props.NewsView.category.name}/>*/}
+                        {/*</Typography>*/}
+                        {/*<Typography gutterBottom fontWeight={600} variant="h5" component="div">*/}
+                        {/*    {props.NewsView.title}*/}
+                        {/*</Typography>*/}
+                        <TitlePage title={props.NewsView.title} size={'h5'} url={props.NewsView.link}/>
+                        <Typography variant="subtitle1" color="text.secondary">
+                            {props.NewsView.description}
+                        </Typography>
+                    </CardContent>
+                </CardActionArea>
+            </Card>
     );
 }
+
 
 export default VerticalPost;

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Typography} from "@mui/material";
 
 interface ContentDetailProps {
     title: string;
@@ -17,12 +18,12 @@ const ContentDetail: React.FC<ContentDetailProps> = ({ title, sapo, children }) 
     }
     return (
         <div style={{fontFamily: "Arial"}}>
-            <h1 className="font-bold" style={titleStyle}>
+            <Typography fontWeight={'bold'}>
                 {title}
-            </h1>
-            <h2 className="text-gray-700 text-base font-bold leading-6 mb-5 mt-5 ">
+            </Typography>
+            <Typography variant="h4" fontWeight='bold' className="mb-5 mt-5 ">
                 {sapo}
-            </h2>
+            </Typography>
             <div className="text-gray-600 text-base leading-7">
                 {children}
             </div>

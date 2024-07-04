@@ -1,6 +1,7 @@
 import React from "react";
 import TitlePage from "../post/TitlePage";
 import {Category} from "../../interfaces/Category";
+import NewsType from "../post/category-new";
 
 type SubtypeItemProps = {
     subtype: Category;
@@ -12,9 +13,7 @@ const SubtypeItem: React.FC<SubtypeItemProps> = ({subtype, onClick}) => {
     //     onClick(subtype); // Invoke the onClick function passed as prop with subtype
     // };
     return (
-        <a href={subtype.url} className={"mr-5 mb-5 mt-5"}>
-            <TitlePage title={subtype.name} size={"h5"} url={subtype.url}  />
-        </a>
+            <NewsType name={subtype.name} variant={ "body1"} url={subtype.url}  />
     )
 }
 export default SubtypeItem;
