@@ -10,7 +10,7 @@ const HomePage: React.FC = () => {
     return (<>
             {/*<Header/>*/}
             {/*<Navbar/>*/}
-            <Container maxWidth={"lg"}>
+            <Container fixed maxWidth={'lg'} className={'container max-lg'}>
                 <Outlet/>
             </Container>
             {/*    <MainContent/>*/}

@@ -1,9 +1,10 @@
 import React from 'react';
 import './App.css';
 import HomePage from './pages/Home';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import CategoryContent from './components/category/CategoryContent';
-import HomeContent from "./components/home/HomeContent";
+import {Route, Routes} from "react-router-dom";
+import CategoryContent from "./components/category/CategoryContent";
+import ArticleContent from "./components/articleDetail/ArticleContent";
+import ArticleDetail from "./components/articleDetail/ArticleDetail";
 
 function App() {
     return (
@@ -11,8 +12,9 @@ function App() {
             <Routes>
                 <Route path="/" element={<HomePage/>}>
                     <Route index element={<CategoryContent/>}/>
-                    {/*<Route index element={<HomeContent/>}/>*/}
+                    <Route path={'/post'} element={<ArticleDetail/>}/>
                 </Route>
+
             </Routes>
         </Router>
     );
