@@ -13,7 +13,7 @@ const HomePage: React.FC = () => {
             <Container maxWidth={"lg"}>
                 <Outlet/>
             </Container>
-            {/*    <MainContent/>*/}
+                {/*<MainContent/>*/}
             <Footer/>
         </>
     );
