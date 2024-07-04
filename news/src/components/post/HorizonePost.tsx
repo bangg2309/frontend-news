@@ -1,9 +1,9 @@
 import React from "react";
 import NewsType from "./category-new";
-import TitlePage from "./title-page";
+import TitlePage from "./TitlePage";
 import DescriptionPost from "./description-post";
 import {Box, Grid} from "@mui/material";
-import PostAvt from "./post-avt";
+import PostAvt from "./PostAvt";
 
 const HorizonePost: React.FC<{
     type: string, url: string,
@@ -11,6 +11,7 @@ const HorizonePost: React.FC<{
 }> = (props) => {
     return (
         <a href={props.url}>
+
             <div className={"flex flex-row justify-between align-middle mb-10"}>
                 <Box sx={{width: 240}}>
                     <PostAvt
