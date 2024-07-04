@@ -5,7 +5,7 @@ import {Variant} from "@mui/material/styles/createTypography";
 import {motion} from 'framer-motion';
 import {MAIN_CONCEPT} from "../theme/theme";
 // import theme from "../../theme/theme";
-const TitlePage: React.FC<{ title: string, size: Variant, url: string }> = (props) => {
+const TitlePage: React.FC<{ title: string, size: Variant, url: string, style?: string }> = (props) => {
     const theme = useTheme();
     return (
         <motion.div
@@ -15,7 +15,7 @@ const TitlePage: React.FC<{ title: string, size: Variant, url: string }> = (prop
                 // textDecoration: 'underline'
             }}
         >
-            <Typography variant={props.size} fontWeight={600} color={'inherit'}
+            <Typography variant={props.size} fontWeight={props.style || 600} color={'inherit'}
                         component={NavLink} to={props.url}>
                 {props.title}
             </Typography>
