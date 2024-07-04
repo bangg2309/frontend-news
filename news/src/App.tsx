@@ -8,6 +8,7 @@ import ArticleDetail from "./components/articleDetail/ArticleDetail";
 
 function App() {
     return (
+        <Router>
             <Routes>
                 <Route path="/" element={<HomePage/>}>
                     <Route index element={<CategoryContent/>}/>
@@ -15,7 +16,7 @@ function App() {
                 </Route>
 
             </Routes>
-    // </Container>
+        </Router>
     );
 }
 
