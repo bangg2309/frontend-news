@@ -1,59 +1,61 @@
 import React from "react";
-import {ListProps} from "@mui/material";
+import {Box, ListProps} from "@mui/material";
 import RemakerItem from "./remakerItem";
+import {RSSItem} from "../../interfaces/RSSItem";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-
-const BoxRemaker: React.FC = (props) => {
-    return (
-        <div>
+const BoxRemaker: React.FC<{ item: RSSItem[] }> = (props) => {
+    var settings = {
+        infinite: false,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        initialSlide: 0,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    };
+    return (<>
             <p style={style} className={"uppercase border-b"}>Đáng chú ý</p>
-            <div className={"flex flex-row"}>
-                <RemakerItem remaker={{
-                    url: "#",
-                    title: "Tài xế ô tô Land Cruiser bị dừng xe ở trạm thu phí, lộ việc gắn biển 80B giả",
-
-                    type: {
-                        name: "Thời sự",
-                        url: "#",
-                    },
-                    src: "https://static-images.vnncdn.net/vps_images_publish/000001/000003/2024/6/30/tai-xe-o-to-land-cruiser-bi-dung-xe-o-tram-thu-phi-lo-viec-gan-bien-80b-gia-1531.jpg?width=360&s=cPfVOYi4wKME8oZ0mDA_lg"
-                }
-                }/>
-                <RemakerItem remaker={{
-                    url: "#",
-                    title: "Tài xế ô tô Land Cruiser bị dừng xe ở trạm thu phí, lộ việc gắn biển 80B giả",
-
-                    type: {
-                        name: "Thời sự",
-                        url: "#",
-                    },
-                    src: "https://static-images.vnncdn.net/vps_images_publish/000001/000003/2024/6/30/tai-xe-o-to-land-cruiser-bi-dung-xe-o-tram-thu-phi-lo-viec-gan-bien-80b-gia-1531.jpg?width=360&s=cPfVOYi4wKME8oZ0mDA_lg"
-                }
-                }/>
-                <RemakerItem remaker={{
-                    url: "#",
-                    title: "Tài xế ô tô Land Cruiser bị dừng xe ở trạm thu phí, lộ việc gắn biển 80B giả",
-
-                    type: {
-                        name: "Thời sự",
-                        url: "#",
-                    },
-                    src: "https://static-images.vnncdn.net/vps_images_publish/000001/000003/2024/6/30/tai-xe-o-to-land-cruiser-bi-dung-xe-o-tram-thu-phi-lo-viec-gan-bien-80b-gia-1531.jpg?width=360&s=cPfVOYi4wKME8oZ0mDA_lg"
-                }
-                }/>
-                <RemakerItem remaker={{
-                    url: "#",
-                    title: "Tài xế ô tô Land Cruiser bị dừng xe ở trạm thu phí, lộ việc gắn biển 80B giả",
-                    type: {
-                        name: "Thời sự",
-                        url: "#",
-                    },
-                    src: "https://static-images.vnncdn.net/vps_images_publish/000001/000003/2024/6/30/tai-xe-o-to-land-cruiser-bi-dung-xe-o-tram-thu-phi-lo-viec-gan-bien-80b-gia-1531.jpg?width=360&s=cPfVOYi4wKME8oZ0mDA_lg"
-                }
-                }/>
-            </div>
-        </div>
-
+            <Box sx={{maxHeight: 250}}>
+                <Slider {...settings} >
+                    {props.item.map((item, index) => {
+                        var margin = index === 0 ? "pl-0" : "pl-1";
+                        margin += " h-fit"
+                        return (
+                            <div key={index} className={margin}>
+                                <RemakerItem item={item}/>
+                            </div>
+                        )
+                    })}
+                </Slider>
+            </Box>
+        </>
     )
 }
 const style = {

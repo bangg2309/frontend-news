@@ -5,15 +5,11 @@ import NewsType from "../post/category-new";
 
 type SubtypeItemProps = {
     subtype: Category;
-    onClick?:(subtype: Category)=> void
 }
 
-const SubtypeItem: React.FC<SubtypeItemProps> = ({subtype, onClick}) => {
-    // const handleClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    //     onClick(subtype); // Invoke the onClick function passed as prop with subtype
-    // };
+const SubtypeItem: React.FC<SubtypeItemProps> = ({subtype}) => {
     return (
-            <NewsType name={subtype.name} variant={ "body1"} url={subtype.url}  />
+            <NewsType category={subtype} variant={ "body1"}  />
     )
 }
 export default SubtypeItem;

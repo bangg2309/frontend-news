@@ -1,10 +1,13 @@
 import React from "react";
 import CategoryContent from "../components/category/CategoryContent";
 import ArticleDetail from "../components/articleDetail/ArticleDetail";
-const MainContent : React.FC = () => {
-    return (
-            <CategoryContent/>
-    );
-};
+import {Category} from "../interfaces/Category";
 
-export default MainContent;
+
+// const MainContent: React.FC = () => {
+//     return (
+//         // <CategoryContent category={category}/>
+//     );
+// };
+
+// export default MainContent;

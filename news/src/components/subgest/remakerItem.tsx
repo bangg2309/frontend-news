@@ -5,32 +5,22 @@ import NewsType from "../post/category-new";
 import {Box, Card, CardActionArea, CardContent, CardMedia, Typography} from "@mui/material";
 import {NavLink} from "react-router-dom";
 import {Category} from "../../interfaces/Category";
+import {RSSItem} from "../../interfaces/RSSItem";
 
-type RemakerItemProps = {
-    remaker: {
-        url: string;
-        src: string;
-        title: string;
-        type: Category;
-    };
-}
 
-const RemakerItem: React.FC<RemakerItemProps> = ({remaker}) => {
+const RemakerItem: React.FC<{ item: RSSItem }> = (props) => {
     return (
-                <Card sx={{boxShadow:'unset'}} component={NavLink} to={remaker.url} className="mr-1 mb-5 mt-5">
-                    <CardActionArea>
-                        <CardMedia
-                            component="img"
-                            height="140"
-                            image={remaker.src}
-                            alt={remaker.title}
-                        />
-                        <CardContent>
-                       <NewsType name={remaker.type.name} url={remaker.type.url} variant='subtitle1'/>
-                            <TitlePage title={remaker.title} size={"body1"} url={remaker.url}/>
-                        </CardContent>
-                    </CardActionArea>
-                </Card>
+        <Card sx={{boxShadow: 'unset'}} component={NavLink} to={props.item.link} className="mb-2 mt-5">
+                <CardMedia
+                    component="img"
+                    image={props.item.thumb}
+                    alt={props.item.title}
+                />
+                <CardContent >
+                    <NewsType category={props.item.category} variant='subtitle1'/>
+                    <TitlePage title={props.item.title} size={"body1"} url={props.item.link}/>
+                </CardContent>
+        </Card>
     );
 }
 

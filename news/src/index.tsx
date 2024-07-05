@@ -7,6 +7,8 @@ import light from "./components/theme/theme";
 import {CssBaseline} from "@mui/material";
 import {Experimental_CssVarsProvider as CssVarsProvider} from '@mui/material/styles';
 import {BrowserRouter} from "react-router-dom";
+import {Provider} from "react-redux";
+import {store} from "./redux/store/store";
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -16,7 +18,9 @@ root.render(
         <BrowserRouter>
             <CssVarsProvider theme={light}>
                 <CssBaseline/>
+                <Provider store={store}>
                 <App/>
+                </Provider>
             </CssVarsProvider>
         </BrowserRouter>
     </React.StrictMode>

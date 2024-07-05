@@ -7,25 +7,21 @@ export default createSlice({
         perPage: 10,
         totalPage: 1,
         totalPost: 0,
-        post:[]
+        post: []
     },
     reducers: {
-        setPage: (state, action) => {
+        setCurPage: (state, action) => {
             state.curPage = action.payload;
         },
         setPerPage: (state, action) => {
-            state.perPage = action.payload;
-        },
-        setTotalPage: (state, action) => {
-            state.totalPage = action.payload;
-        },
-        setTotalPost: (state, action) => {
-            state.totalPost = action.payload;
-            state.totalPage = Math.ceil(action.payload / state.perPage);
+            state.perPage = action.payload % 2 === 0 ? action.payload : action.payload + 1;
         },
         setPost: (state, action) => {
             state.post = action.payload;
-        }
+            state.totalPage = Math.ceil(action.payload.length / state.perPage);
+            state.totalPost = action.payload.length;
+        },
+
 
     }
 })

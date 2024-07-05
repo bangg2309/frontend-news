@@ -4,7 +4,10 @@ import {blue, red} from "@mui/material/colors";
 import {hover} from "@testing-library/user-event/dist/hover";
 
 export enum MAIN_CONCEPT{
-    main='#2d67ad'
+    main='#2d67ad',
+    lightNav='rgba(255, 255, 255, 0.9)',
+    darkNav='rgba(15, 18, 20, 0.9)',
+
 }
 
 const theme = extendTheme({

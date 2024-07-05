@@ -11,8 +11,8 @@ const getCategory = (name: string) => {
 }
 
 let category = getCategory("Xã hội")
-const Breedcrumb: React.FC<{ category:Category }> = (props) => {
-    const   theme = useTheme();
+const Breedcrumb: React.FC<{ category: Category }> = (props) => {
+    const theme = useTheme();
     // const [categorys, setSubype] = useState(category.subType)
     // const updatedSubType=
     // const updateSubType = (selectedSubType: Category) => {
@@ -25,7 +25,7 @@ const Breedcrumb: React.FC<{ category:Category }> = (props) => {
     return (
         <>
             <h2 className="mt-5 mb-1.5">
-                <NewsType url={props.category.url} name={props.category.name} variant={"h5"}/>
+                <NewsType category={props.category} variant={"h5"}/>
             </h2>
             <Stack direction={"row"} spacing={2} className={"mb-1"}>
 

@@ -9,7 +9,7 @@ import {Container} from "@mui/material";
 const HomePage: React.FC = () => {
     return (<>
             {/*<Header/>*/}
-            {/*<Navbar/>*/}
+            <Navbar/>
             <Container fixed maxWidth={'lg'} className={'container max-lg'}>
                 <Outlet/>
             </Container>

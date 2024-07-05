@@ -1,28 +1,28 @@
 import React from "react";
 import {Card, CardActionArea, CardContent, CardMedia, Grid, Stack, Typography} from "@mui/material";
-import {NewsView} from "../../interfaces/NewsView";
 import NewsType from "./category-new";
 import TitlePage from "./TitlePage";
+import {RSSItem} from "../../interfaces/RSSItem";
 
 const HorizonePost: React.FC<{
-    NewsView: NewsView, titleSize: string,
+    NewsView: RSSItem, titleSize: string,
 }> = (props) => {
     return (
-        <Card sx={{boxShadow: 'unset'}} className={"mb-2"}>
+        <Card sx={{boxShadow: 'unset', height:'fit-content'}} className={"mb-2"}>
             <CardActionArea>
                 <Stack direction={'row'}>
                     <CardMedia
-                        sx={{width: "100%", maxWidth: 280, margin: "16px"}}
+                        sx={{ width: 220, margin: "16px"}}
                         component="img"
-                        image={props.NewsView.src}
+                        image={props.NewsView.thumb}
                         alt={props.NewsView.title}
                     />
                     <CardContent>
-                        <NewsType url={props.NewsView.category.url} name={props.NewsView.category.name}
+                        <NewsType category={props.NewsView.category}
                                   variant={"subtitle1"}/>
-                        <TitlePage title={props.NewsView.title} size={"h6"} url={props.NewsView.link}/>
-                        <Typography variant="subtitle1" color="text.secondary">
-                            {props.NewsView.description}
+                        <TitlePage title={props.NewsView.title} size={"subtitle1"} url={props.NewsView.link}/>
+                        <Typography variant="body2" color="text.secondary">
+                            {props.NewsView.description.replace(/<[^>]*>/g, '')}
                         </Typography>
                     </CardContent>
                 </Stack>

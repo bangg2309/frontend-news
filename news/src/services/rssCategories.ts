@@ -6,12 +6,11 @@ export const rssCategories: Category[] = [
         rss: 'home.rss',
         url: '/trang-chu'
     },
-    {
-        name: 'Euro',
-        rss: 'euro-2024-175.rss',
-        url: ''
-    },
-
+    // {
+    //     name: 'Euro',
+    //     rss: 'euro-2024-175.rss',
+    //     url: ''
+    // },
     {
         name: 'Bên lề',
         rss: 'ben-le-erro-177.rss'
