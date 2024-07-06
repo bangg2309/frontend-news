@@ -91,7 +91,7 @@ const SectionTopStory: React.FC<{ item: {} }> = ({item}) => {
     return (
         <>
             <Stack direction="column" spacing={2} >
-                <Stack direction="row" spacing={2} divider={<Divider orientation="vertical" flexItem/>}>
+                <Stack direction="row" spacing={2} divider={<Divider orientation="vertical" flexItem sx={{borderColor:"rgba(201,196,196,0.79)"}}/>}>
                     <Grid item xs={4}>
                         <Stack>
                             {list6th.map((item, index) => (
@@ -100,11 +100,11 @@ const SectionTopStory: React.FC<{ item: {} }> = ({item}) => {
                         </Stack>
                     </Grid>
                     <Grid item xs={5}>
-                        <Stack direction="column" spacing={2} divider={<Divider orientation="horizontal" flexItem/>}>
+                        <Stack direction="column" spacing={2}>
                             <VerticalPost NewsView={bigPost.NewsView} titleSize={'lg'}
                             />
                             <Grid item xs={15}>
-                                <Stack direction="row" spacing={2} divider={<Divider orientation="vertical" flexItem/>}>
+                                <Stack direction="row" spacing={2} divider={<Divider orientation="vertical" flexItem sx={{borderColor:"rgba(201,196,196,0.79)"}} />}>
                                     {list2th.map((item, index) => (
                                         // <Grid item xs={5} key={index}>
                                         <TopStorySmall item={item}/>
@@ -123,7 +123,7 @@ const SectionTopStory: React.FC<{ item: {} }> = ({item}) => {
                     </Grid>
                 </Stack>
 
-                <Stack direction="row" spacing={2} divider={<Divider orientation="vertical" flexItem/>} style={{backgroundColor:"rgba(227,227,227,0.79)"}}>
+                <Stack direction="row" spacing={2} divider={<Divider orientation="vertical" flexItem sx={{borderColor:"rgba(201,196,196,0.79)"}}/>} style={{backgroundColor:"rgba(227,227,227,0.79)"}}>
                     {list3th.map((item, index) => (
                         <Grid item xs={4} key={index}>
                             <TopStorySmall item={item}/>
