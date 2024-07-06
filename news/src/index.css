@@ -16,7 +16,7 @@ code {
 }
 
 a {
-    color: #212529;
+    /*color: #212529;*/
     text-decoration: none;
     background-color: transparent;
     -webkit-text-decoration-skip: objects;
