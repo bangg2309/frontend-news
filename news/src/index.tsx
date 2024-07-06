@@ -8,7 +8,6 @@ import {BrowserRouter} from "react-router-dom";
 import {CssBaseline} from "@mui/material";
 import light from "./components/theme/theme";
 
-
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );

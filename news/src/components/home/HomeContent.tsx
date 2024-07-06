@@ -1,28 +1,21 @@
 import React from "react";
 import {Button, Grid, StyledEngineProvider} from "@mui/material";
-import TitlePage from "../post/TitlePage";
-import NewsType from "../post/category-new";
-import HorizonePost from "../post/HorizonePost";
-import BoxRemaker from "../subgest/boxRemaker";
-import Breedcrumb from "../breedcrumb/breedcrumb";
-import TopStory from "../top-story/TopStory";
-import ModeToggle from "../theme/toggleTheme";
 import SectionTopStory from "../top-story/SectionTopStory";
 
 
-const CategoryContent: React.FC = () => {
+const HomeContent: React.FC = () => {
     return (
         <>
-            {/*<Breedcrumb title={"THỜI SỰ"}/>*/}
+            {/*<Breedcrumb  category={"bla bal"}/>*/}
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <SectionTopStory item={{}}/>
                 </Grid>
-                <Grid item xs={3}>
+                {/*<Grid item xs={3}>*/}
                     {/*<ModeToggle/>*/}
-                </Grid>
+                {/*</Grid>*/}
             </Grid>
         </>
     );
 }
-export default CategoryContent;
+export default HomeContent;

@@ -3,6 +3,7 @@ import {Grid, Stack} from "@mui/material";
 import VerticalPost from "../post/VerticalPost ";
 import TopStorySmall from "./TopStorySmall";
 import {NewsView} from "../../interfaces/NewsView";
+import SmallPost from "./SmallPost";
 
 const bigPost: { NewsView: NewsView } = {
     NewsView: {
@@ -67,7 +68,7 @@ const TopStory: React.FC<{ item: {} }> = ({item}) => {
             <Grid container spacing={1}>
                 {list3th.map((item, index) => (
                     <Grid item xs={4} key={index}>
-                            <TopStorySmall item={item}/>
+                            <SmallPost item={item}/>
                     </Grid>
                 ))}
             </Grid>

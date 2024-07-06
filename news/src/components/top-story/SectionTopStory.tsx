@@ -4,6 +4,7 @@ import VerticalPost from "../post/VerticalPost ";
 import SectionTopStory2th from "./SectionTopStory2th";
 import {NewsView} from "../../interfaces/NewsView";
 import TopStorySmall from "./TopStorySmall";
+import SmallPost from "./SmallPost";
 
 const bigPost: { NewsView: NewsView } = {
     NewsView: {
@@ -101,8 +102,7 @@ const SectionTopStory: React.FC<{ item: {} }> = ({item}) => {
                     </Grid>
                     <Grid item xs={5}>
                         <Stack direction="column" spacing={2}>
-                            <VerticalPost NewsView={bigPost.NewsView} titleSize={'lg'}
-                            />
+                            <VerticalPost NewsView={bigPost.NewsView}/>
                             <Grid item xs={15}>
                                 <Stack direction="row" spacing={2} divider={<Divider orientation="vertical" flexItem sx={{borderColor:"rgba(201,196,196,0.79)"}} />}>
                                     {list2th.map((item, index) => (
@@ -117,13 +117,13 @@ const SectionTopStory: React.FC<{ item: {} }> = ({item}) => {
                     <Grid item xs={3}>
                         <Stack>
                             {list6th.map((item, index) => (
-                                <SectionTopStory2th item={item} key={index}/>
+                                <SmallPost item={item} key={index}/>
                             ))}
                         </Stack>
                     </Grid>
                 </Stack>
 
-                <Stack direction="row" spacing={2} divider={<Divider orientation="vertical" flexItem sx={{borderColor:"rgba(201,196,196,0.79)"}}/>} style={{backgroundColor:"rgba(227,227,227,0.79)"}}>
+                <Stack direction="row" spacing={2} divider={<Divider orientation="vertical" flexItem sx={{borderColor:"rgba(201,196,196,0.79)"}}/>} style={{backgroundColor:"rgba(232,232,232,0.79)"}}>
                     {list3th.map((item, index) => (
                         <Grid item xs={4} key={index}>
                             <TopStorySmall item={item}/>
