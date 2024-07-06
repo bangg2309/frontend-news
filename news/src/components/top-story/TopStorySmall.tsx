@@ -1,26 +1,39 @@
-import React from "react";
-import {Stack} from "@mui/material";
-import PostAvt from "../post/PostAvt";
+import React, {useEffect, useRef} from "react";
+import {Card, CardActionArea, CardContent, CardMedia, styled} from "@mui/material";
 import TitlePage from "../post/TitlePage";
+import {NavLink} from "react-router-dom";
+import {motion} from 'framer-motion';
+import shadows from "@mui/material/styles/shadows";
+import {MAIN_CONCEPT} from "../theme/theme";
+import {RSSItem} from "../../interfaces/RSSItem";
 
-type TopStorySmallProps={
-    item:{
-        url:string;
-        src:string;
-        title:string;
-    }
-}
 
-const TopStorySmall: React.FC<TopStorySmallProps> = ({item}) => {
+const TopStorySmall: React.FC<{ item: RSSItem }> = (props) => {
     return (
-        <>
-            <Stack className={"mb-8"} >
-                <a href={item.url}>
-                    <PostAvt src={item.src} />
-                    <TitlePage title={item.title} size={"text-sm"} />
-                </a>
-            </Stack>
-            </>
+        <Card sx={{boxShadow: 'unset', padding: 0, maxWidth: 250}} className={'mb-2 p-2 '}>
+            {/*<StyleCard>*/}
+            <CardActionArea>
+                <CardMedia
+                    component="img"
+                    width="100%"
+                    image={props.item.thumb || '#'}
+                    alt={props.item.title}
+
+                />
+                <CardContent color={'inherit'}>
+                    <TitlePage title={props.item.title} size={'body1'} url={props.item.link}/>
+                </CardContent>
+            </CardActionArea>
+            {/*</StyleCard>*/}
+        </Card>
+        // </motion.div>
     )
 }
+export const StyleCard = styled("div")(({theme}) => ({
+    // '&:hover': {
+    //     color: MAIN_CONCEPT.main
+    // },
+    // color: theme.palette.text.primary,
+    // mb: 2,
+}))
 export default TopStorySmall;

@@ -1,8 +1,10 @@
+import {Category} from "./Category";
+
 export interface RSSItem {
     title: string;
     description: string;
-    pubDate: string;
+    pubDate?: string;
     link: string;
-    category: string;
+    category: Category;
     thumb: string;
 }
