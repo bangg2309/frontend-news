@@ -3,8 +3,9 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleUser, faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
 import {alpha, Box, Button, Container, InputBase, styled, Toolbar, Typography, useTheme} from "@mui/material";
 import {MAIN_CONCEPT} from "../theme/theme";
+import Login from "../login/Login";
 
-const Search = styled('div')(({ theme }) => ({
+const Search = styled('div')(({theme}) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
     backgroundColor: alpha(theme.palette.grey["500"], 0.15),
@@ -19,7 +20,7 @@ const Search = styled('div')(({ theme }) => ({
     },
 }));
 
-const SearchIconWrapper = styled('div')(({ theme }) => ({
+const SearchIconWrapper = styled('div')(({theme}) => ({
     padding: theme.spacing(0, 2),
     height: '100%',
     position: 'absolute',
@@ -29,7 +30,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
     justifyContent: 'center',
 }));
 
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
+const StyledInputBase = styled(InputBase)(({theme}) => ({
     color: theme.palette.text.primary,
     width: '100%',
     '& .MuiInputBase-input': {
@@ -61,27 +62,16 @@ const Header: React.FC = () => {
                         <Box component="img" src={`${process.env.PUBLIC_URL}/logo.png`}
                              sx={{flexGrow: 1, maxWidth: 100}}/>
 
-                        <Box sx={{flexGrow: 0, display:'flex', width:{xs:{width:'100%'}, md:{width:'auto'}}}}>
-                               <Button sx={{":hover":{color:MAIN_CONCEPT.main} }}>
-                                    <Typography variant="body1"
-                                                sx={{color:'inherit',
-                                                    fontWeight:600,
-                                                    display: { xs: 'none', md: 'flex' }
-                                                    }}>
-                                        Đăng nhập
-                                    </Typography>
-                                   <FontAwesomeIcon style={{
-                                       color: "inherit",
-                                       margin: '0 5 0 5',
-                                   }} size={'2x'} icon={faCircleUser}/>
-                               </Button>
+                        <Box sx={{flexGrow: 0, display: 'flex', width: {xs: {width: '100%'}, md: {width: 'auto'}}}}>
+                            <Login/>
                             <Search>
                                 <SearchIconWrapper>
-                                    <FontAwesomeIcon style={{color:theme.palette.text.primary}} icon={faMagnifyingGlass} />
+                                    <FontAwesomeIcon style={{color: theme.palette.text.primary}}
+                                                     icon={faMagnifyingGlass}/>
                                 </SearchIconWrapper>
                                 <StyledInputBase
                                     placeholder="Search…"
-                                    inputProps={{ 'aria-label': 'search' }}
+                                    inputProps={{'aria-label': 'search'}}
                                 />
                             </Search>
                         </Box>
