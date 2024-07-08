@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="de5d252a-db4c-43a4-b290-661b18473661" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/frontend-news.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/news/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/news/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/news/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/news/src/components/category/CategoryContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/news/src/components/category/CategoryContent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news/src/pages/MainContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/news/src/pages/MainContent.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,17 +38,20 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Jest.renders learn react link.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Tan-branch",
-    "last_opened_file_path": "D:/Project/frontend-news/news",
+    "git-widget-placeholder": "Chien-branch",
+    "last_opened_file_path": "G:/frontend-news",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs.jest.jest_package": "G:/frontend-news/news/node_modules/react-scripts",
     "nodejs_package_manager_path": "npm",
     "npm.start.executor": "Run",
-    "ts.external.directory.path": "D:\\Project\\frontend-news\\news\\node_modules\\typescript\\lib",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "G:\\frontend-news\\news\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -61,7 +60,19 @@
       <recent name="D:\Project\frontend-news\news\src\components\horizontalPost" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.start">
+    <configuration name="renders learn react link" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/news/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$/news" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/news/src/App.test.tsx" />
+      <test-names>
+        <test-name value="renders learn react link" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/news/package.json" />
       <command value="run" />
@@ -75,6 +86,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.start" />
+        <item itemvalue="Jest.renders learn react link" />
       </list>
     </recent_temporary>
   </component>
@@ -88,6 +100,8 @@
       <updated>1719777799073</updated>
       <workItem from="1719777800118" duration="8891000" />
       <workItem from="1719801550985" duration="1350000" />
+      <workItem from="1720014589401" duration="3507000" />
+      <workItem from="1720018181207" duration="16039000" />
     </task>
     <servers />
   </component>
