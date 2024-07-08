@@ -8,7 +8,7 @@ import {RSSItem} from "../../interfaces/RSSItem";
 
 const VerticalPost: React.FC<{ NewsView: RSSItem }> = (props) => {
     return (
-        <Card sx={{boxShadow: 'unset',marginBottom:2, padding: 0 , maxWidth:500}} component={NavLink} to={props.NewsView.link}>
+        <Card sx={{boxShadow: 'unset',marginBottom:2, padding: 0 , maxWidth:600}} component={NavLink} to={'/'+props.NewsView.link}>
             <CardActionArea>
                 <CardMedia
                     component="img"

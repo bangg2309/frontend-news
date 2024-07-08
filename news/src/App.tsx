@@ -12,15 +12,14 @@ const category: Category = {
     rss: "giai-tri-36.rss"
 }
 function App() {
-    return (
-        <Router>
+    return (<div className={'relative'}>
             <Routes>
                 <Route path="/" element={<HomePage/>}>
-                    {/*<Route index element={<CategoryContent/>}/>*/}
+                    <Route index element={<CategoryContent category={category}/>}/>
                     <Route path={"/:articleName"} element={<ArticleDetail/>}/>
                 </Route>
             </Routes>
-        </Router>
+        </div>
     );
 }
 

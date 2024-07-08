@@ -4,7 +4,7 @@ import {fetchRSSData} from "../../services/rssService";
 import {Category} from "../../interfaces/Category";
 import {RSSItem} from "../../interfaces/RSSItem";
 import Breedcrumb from "../breedcrumb/breedcrumb";
-import {Grid, Pagination, PaginationItem, Stack} from "@mui/material";
+import {Box, Grid, Pagination, PaginationItem, Stack} from "@mui/material";
 import TopStory from "../top-story/TopStory";
 import HorizonePost from "../post/HorizonePost";
 import BoxRemaker from "../subgest/boxRemaker";
@@ -17,7 +17,7 @@ import {lowerPost, totalPageSelector, totalPostSelector, upperPost} from "../../
 const CategoryContent: React.FC<{ category: Category }> = (props) => {
     const dispatch = useDispatch();
     const [news, setNews] = React.useState<RSSItem[]>([]);
-    const handleChangePage = (e: React.ChangeEvent<unknown>, v: number  ) => {
+    const handleChangePage = (e: React.ChangeEvent<unknown>, v: number) => {
         dispatch(categoryPaging.actions.setCurPage(v))
     };
     useEffect(() => {
@@ -31,22 +31,28 @@ const CategoryContent: React.FC<{ category: Category }> = (props) => {
         <>
             <Breedcrumb category={props.category}/>
             <Grid container spacing={2}>
-                <Grid item xs={8}>
+                <Grid item xs={9}>
                     <TopStory item={news.slice(0, 6)}/>
                     {useSelector(upperPost).map((item: RSSItem, index: number) => {
                         return (
                             <HorizonePost NewsView={item} titleSize={"h5"} key={index}/>
                         )
                     })}
-                    <BoxRemaker item={news.slice(0, 10)}/>
+
+                </Grid>
+                <Grid item xs={3}>
+                    <ModeToggle/>
+                </Grid>
+            </Grid>
+                        <BoxRemaker item={news.slice(0, 10)}/>
+            <Grid container spacing={2}>
+                <Grid item xs={9}>
                     {useSelector(lowerPost).map((item: RSSItem, index: number) => {
-                        console.log(item)
                         return (
 
                             <HorizonePost NewsView={item} titleSize={"h6"} key={index}/>
                         )
                     })}
-                    <Stack justifyContent={'center'}>
                         <Pagination sx={{margin: 'auto'}} count={useSelector(totalPageSelector)} variant="outlined"
                                     shape="rounded"
                                     renderItem={(item) => (
@@ -54,20 +60,15 @@ const CategoryContent: React.FC<{ category: Category }> = (props) => {
                                             component={Stack}
                                             justifyContent="center"
                                             alignItems="center"
-                                            sx={{width: 40, height: 40}}
+                                            sx={{width: 30, height: 30}}
                                             {...item}
                                         />
                                     )}
-                            // onChange={(event, page) => {
-                            //     setCurPage(page)
-                            // dispatch(categoryPaging.actions.setPage(page))
-                            // }
                                     onChange={handleChangePage}
                         />
-                    </Stack>
                 </Grid>
                 <Grid item xs={3}>
-                    <ModeToggle/>
+                    {/*<ModeToggle/>*/}
                 </Grid>
             </Grid>
         </>

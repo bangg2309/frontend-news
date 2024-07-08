@@ -9,7 +9,7 @@ import {Category} from "../../interfaces/Category";
 const NewsType: React.FC<{ category:Category, variant:Variant }> = (props) => {
     const theme= useTheme();
     return (
-        <Typography color={MAIN_CONCEPT.main} fontWeight={'bold'} component={NavLink} to={props.category.url} variant={props.variant}>
+        <Typography color='inherit' fontWeight={'bold'} component={NavLink} to={props.category.url} variant={props.variant}>
             {props.category.name.toUpperCase()}
         </Typography>
         //   <div className={"mb-1.5"}>

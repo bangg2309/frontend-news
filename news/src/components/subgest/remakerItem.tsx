@@ -11,14 +11,14 @@ import {RSSItem} from "../../interfaces/RSSItem";
 const RemakerItem: React.FC<{ item: RSSItem }> = (props) => {
     return (
         <Card sx={{boxShadow: 'unset'}} component={NavLink} to={props.item.link} className="mb-2 mt-5">
-                <CardMedia
+                <CardMedia sx={{height: 100}}
                     component="img"
                     image={props.item.thumb}
                     alt={props.item.title}
                 />
                 <CardContent >
                     <NewsType category={props.item.category} variant='subtitle1'/>
-                    <TitlePage title={props.item.title} size={"body1"} url={props.item.link}/>
+                    <TitlePage title={props.item.title} size={"body2"} url={props.item.link}/>
                 </CardContent>
         </Card>
     );
