@@ -10,9 +10,9 @@ const BoxRemaker: React.FC<{ item: RSSItem[] }> = (props) => {
     var settings = {
         infinite: false,
         speed: 500,
-        slidesToShow: 4,
+        slidesToShow: 5,
         slidesToScroll: 4,
-        initialSlide: 0,
+        // initialSlide: 0,
         responsive: [
             {
                 breakpoint: 1024,

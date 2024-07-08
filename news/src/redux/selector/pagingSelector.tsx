@@ -9,7 +9,6 @@ export const upperPost = createSelector(currentPageSelector, perPageSelector, po
     return post.slice(currentPage * perPage, currentPage * perPage + perPage / 2)
 })
 export const lowerPost = createSelector(currentPageSelector, perPageSelector, postSelector, (currentPage, perPage, post) => {
-    //console.log() all
+
     return post.slice(currentPage * perPage + perPage / 2, currentPage * perPage + perPage)
 })
-// export const pagingSelector = createSelector()
