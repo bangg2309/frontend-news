@@ -21,7 +21,7 @@ const HomePage: React.FC = () => {
 
 
             {/*    <MainContent/>*/}
-            {/*<Footer/>*/}
+            <Footer/>
         </>
     );
 };
