@@ -9,6 +9,7 @@ import fetchArticleData from '../../services/CrawlArticle';
 import ModeToggle from '../theme/toggleTheme';
 import { useParams } from 'react-router-dom';
 import { Skeleton } from '@mui/material';
+import CommentBox from "./CommentBox";
 
 const ArticleDetail: React.FC = () => {
     const { articleName } = useParams<{ articleName: string }>();
@@ -41,7 +42,7 @@ const ArticleDetail: React.FC = () => {
                     <Skeleton variant="text" width="80%" height={30} />
                     <Skeleton variant="rectangular" width="100%" height={200} />
                 </div>
-                <div className="container__right">
+                <div className="container__right ">
                     <Skeleton variant="rectangular" width="100%" height={30} />
                     <Skeleton variant="rectangular" width="100%" height={400} />
                 </div>
@@ -57,6 +58,7 @@ const ArticleDetail: React.FC = () => {
                 <ContentDetail title={data.title} sapo={data.sapo}>
                     <ArticleContent articleContent={data.articleContent} />
                 </ContentDetail>
+                <CommentBox />
             </div>
             <div className="container__right">
                 <ModeToggle />
