@@ -29,8 +29,8 @@ function App() {
             <Routes>
                 <Route path="/" element={<HomePage/>}>
                     <Route index element={<MainContent categories={categories}/>}/>
-                    {/*<Route index element={<CategoryContent category={category}/>}/>*/}
-                    <Route path={"/:articleName"} element={<ArticleDetail/>}/>
+                    <Route path={"/the-loai/:param"} element={<CategoryContent/>}/>
+                    <Route path={"/bai-viet/:articleName"} element={<ArticleDetail/>}/>
                 </Route>
             </Routes>
         </div>
