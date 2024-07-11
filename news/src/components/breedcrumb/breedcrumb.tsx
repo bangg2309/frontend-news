@@ -7,12 +7,11 @@ import {Category} from "../../interfaces/Category";
 import {MAIN_CONCEPT} from "../theme/theme";
 
 
-const getCategory = (name: string) => {
-    return rssCategories.find((category) => category.name === name) || {name: '', subType: [], url: ''};
-}
 
-let category = getCategory("Xã hội")
+
+// let category = getCategory("Xã hội")
 const Breedcrumb: React.FC<{ category: Category }> = (props) => {
+    console.log(props.category)
     const theme = useTheme();
     // const [categorys, setSubype] = useState(category.subType)
     // const updatedSubType=
@@ -25,13 +24,13 @@ const Breedcrumb: React.FC<{ category: Category }> = (props) => {
     // }
     return (
         <>
-            <h2 className="mt-5 mb-1.5" style={{color:MAIN_CONCEPT.main}}>
+            <h2 className="mt-5 mb-1.5 ml-2" style={{color:MAIN_CONCEPT.main}}>
                 <NewsType category={props.category} variant={"h5"}/>
             </h2>
             <Stack direction={"row"} spacing={2} className={"mb-1"}>
 
                 {/*    print subtype in category*/}
-                {category.subType?.map((subtype, index) => (
+                {props.category.subType?.map((subtype, index) => (
                     <SubtypeItem subtype={subtype} key={index}/>
                 ))}
             </Stack>
