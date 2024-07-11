@@ -18,9 +18,6 @@ const CategoryContent: React.FC = () => {
                 <Grid item xs={12}>
                     <SectionTopStory item={{}}/>
                 </Grid>
-                <Grid item xs={3}>
-                    {/*<ModeToggle/>*/}
-                </Grid>
             </Grid>
         </>
     );

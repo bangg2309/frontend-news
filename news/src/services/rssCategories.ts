@@ -4,7 +4,7 @@ export const rssCategories: Category[] = [
     {
         name: 'Trang chủ',
         rss: 'home.rss',
-        url: '/trang-chu'
+        url: '/'
     },
     // {
     //     name: 'Euro',
