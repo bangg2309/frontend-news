@@ -4,6 +4,7 @@ import {Divider, Stack, useTheme} from "@mui/material";
 import SubtypeItem from "./subtypeItem";
 import {rssCategories} from "../../services/rssCategories";
 import {Category} from "../../interfaces/Category";
+import {MAIN_CONCEPT} from "../theme/theme";
 
 
 const getCategory = (name: string) => {
@@ -11,8 +12,8 @@ const getCategory = (name: string) => {
 }
 
 let category = getCategory("Xã hội")
-const Breedcrumb: React.FC<{ category:Category }> = (props) => {
-    const   theme = useTheme();
+const Breedcrumb: React.FC<{ category: Category }> = (props) => {
+    const theme = useTheme();
     // const [categorys, setSubype] = useState(category.subType)
     // const updatedSubType=
     // const updateSubType = (selectedSubType: Category) => {
@@ -24,8 +25,8 @@ const Breedcrumb: React.FC<{ category:Category }> = (props) => {
     // }
     return (
         <>
-            <h2 className="mt-5 mb-1.5">
-                <NewsType url={props.category.url} name={props.category.name} variant={"h5"}/>
+            <h2 className="mt-5 mb-1.5" style={{color:MAIN_CONCEPT.main}}>
+                <NewsType category={props.category} variant={"h5"}/>
             </h2>
             <Stack direction={"row"} spacing={2} className={"mb-1"}>
 

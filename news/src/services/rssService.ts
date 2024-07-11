@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {parseStringPromise} from 'xml2js';
 import {RSSItem} from "../interfaces/RSSItem";
+import {getCategory} from "./GetData";
 
 const BASE_URL = 'https://tienphong.vn/rss/';
 
@@ -16,8 +17,8 @@ const fetchRSSFromUrl = async (url: string): Promise<RSSItem[]> => {
             title: item.title[0],
             description: item.description[0],
             pubDate: item.pubDate[0],
-            link: item.link[0],
-            category: item.category ? item.category[0] : 'Uncategorized',
+            link: (item.link[0]).substring((item.link[0]).lastIndexOf('/')+1),
+            category: item.category ? getCategory(item.category[0]) : 'Uncategorized',
             thumb: item.thumb ? item.thumb[0] : ''
         }));
     } catch (error) {
@@ -26,7 +27,7 @@ const fetchRSSFromUrl = async (url: string): Promise<RSSItem[]> => {
     }
 };
 
-export const fetchRSSData = async (categorySlug: string): Promise<RSSItem[]> => {
+export const fetchRSSData = async (categorySlug: string ): Promise<RSSItem[]> => {
     try {
         const url = createRSSUrl(categorySlug);
         return await fetchRSSFromUrl(url);

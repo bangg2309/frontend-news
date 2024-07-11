@@ -2,19 +2,22 @@ import React from "react";
 import {Divider, Grid, Stack} from "@mui/material";
 import VerticalPost from "../post/VerticalPost ";
 import SectionTopStory2th from "./SectionTopStory2th";
-import {NewsView} from "../../interfaces/NewsView";
+// import {NewsView} from "../../interfaces/NewsView";
 import TopStorySmall from "./TopStorySmall";
-import SmallPost from "./SmallPost";
+import {RSSItem} from "../../interfaces/RSSItem";
 
-const bigPost: { NewsView: NewsView } = {
+const bigPost: { NewsView: RSSItem } = {
     NewsView: {
         link: "https://www.google.com",
         category: {
             name: "thời sự",
-            url: "#"
+            url: "#",
+            rss: '/thoi-su.rss'
         },
         title: "Vụ đóng mở cao tốc TPHCM - Long Thành: Cần kịch bản điều tiết giao thông",
         description: "CSGT chốt chặn không cho ô tô lưu thông vào cao tốc TPHCM - Long Thành - Dầu Giây khiến dòng xe phải quay đầu trở lại gây nên tình trạng ùn ứ kéo dài tại nút giao thông An Phú."
+        ,
+        thumb: "https://static-images.vnncdn.net/vps_images_publish/000001/000003/2024/7/1/tai-nan-giao-thong-nghiem-trong-o-hai-duong-2-nguoi-thiet-mang-3782.jpg?width=360&s=pDt4P2RKknOAooQwjksqAg"
     }
 }
 const list6th = [
@@ -91,8 +94,8 @@ const list2th = [
 const SectionTopStory: React.FC<{ item: {} }> = ({item}) => {
     return (
         <>
-            <Stack direction="column" spacing={2} >
-                <Stack direction="row" spacing={2} divider={<Divider orientation="vertical" flexItem sx={{borderColor:"rgba(201,196,196,0.79)"}}/>}>
+            <Stack direction="column" spacing={2}>
+                <Stack direction="row" spacing={2} divider={<Divider orientation="vertical" flexItem/>}>
                     <Grid item xs={4}>
                         <Stack>
                             {list6th.map((item, index) => (
@@ -101,15 +104,16 @@ const SectionTopStory: React.FC<{ item: {} }> = ({item}) => {
                         </Stack>
                     </Grid>
                     <Grid item xs={5}>
-                        <Stack direction="column" spacing={2}>
-                            <VerticalPost NewsView={bigPost.NewsView}/>
+                        <Stack direction="column" spacing={2} divider={<Divider orientation="horizontal" flexItem/>}>
+                            {/*<VerticalPost NewsView={bigPost.NewsView} titleSize={'lg'}*/}
+                            {/*/>*/}
                             <Grid item xs={15}>
-                                <Stack direction="row" spacing={2} divider={<Divider orientation="vertical" flexItem sx={{borderColor:"rgba(201,196,196,0.79)"}} />}>
-                                    {list2th.map((item, index) => (
-                                        // <Grid item xs={5} key={index}>
-                                        <TopStorySmall item={item}/>
-                                        // </Grid>
-                                    ))}
+                                <Stack direction="row" spacing={2} divider={<Divider orientation="vertical" flexItem/>}>
+                                    {/*{list2th.map((item, index) => (*/}
+                                    {/*    // <Grid item xs={5} key={index}>*/}
+                                    {/*    // <TopStorySmall item={item}/>*/}
+                                    {/*    // </Grid>*/}
+                                    {/*// ))}*/}
                                 </Stack>
                             </Grid>
                         </Stack>
@@ -117,16 +121,17 @@ const SectionTopStory: React.FC<{ item: {} }> = ({item}) => {
                     <Grid item xs={3}>
                         <Stack>
                             {list6th.map((item, index) => (
-                                <SmallPost item={item} key={index}/>
+                                <SectionTopStory2th item={item} key={index}/>
                             ))}
                         </Stack>
                     </Grid>
                 </Stack>
 
-                <Stack direction="row" spacing={2} divider={<Divider orientation="vertical" flexItem sx={{borderColor:"rgba(201,196,196,0.79)"}}/>} style={{backgroundColor:"rgba(232,232,232,0.79)"}}>
+                <Stack direction="row" spacing={2} divider={<Divider orientation="vertical" flexItem/>}
+                       style={{backgroundColor: "rgba(227,227,227,0.79)"}}>
                     {list3th.map((item, index) => (
                         <Grid item xs={4} key={index}>
-                            <TopStorySmall item={item}/>
+                            {/*<TopStorySmall item={item}/>*/}
                         </Grid>
                     ))}
                 </Stack>
