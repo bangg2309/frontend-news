@@ -3,8 +3,8 @@ import {useSelector, useDispatch} from 'react-redux';
 import {Box, TextField, Button, IconButton, Typography, Avatar, Link} from '@mui/material';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faSmile} from '@fortawesome/free-solid-svg-icons';
-import {RootState} from "../../redux/store/store";
 import {addComment} from "../../redux/slice/commentsSlice";
+import {RootState} from "../../redux/store/store";
 
 const CommentBox: React.FC = () => {
     const comments = useSelector((state: RootState) => state.comments.comments);
@@ -34,7 +34,7 @@ const CommentBox: React.FC = () => {
 
 
     const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-       setIsChangingUsername(!isChangingUsername);
+        setIsChangingUsername(!isChangingUsername);
         if (!isChangingUsername) {
             setIsEditingUsername(true);
         } else {
@@ -87,8 +87,9 @@ const CommentBox: React.FC = () => {
                             {username}
                         </Typography>
                     )}
-                    <Typography sx={{fontSize: 12, cursor: 'pointer', textDecoration: 'underline'}} onClick={handleLinkClick}>
-                        {isChangingUsername ? 'Xác nhận tên hiển thị' : 'Sử dụng tên hiển thị khác?' }
+                    <Typography sx={{fontSize: 12, cursor: 'pointer', textDecoration: 'underline'}}
+                                onClick={handleLinkClick}>
+                        {isChangingUsername ? 'Xác nhận tên hiển thị' : 'Sử dụng tên hiển thị khác?'}
                     </Typography>
                 </Box>
                 <Button variant="contained" color="info" onClick={handleCommentSubmit}>

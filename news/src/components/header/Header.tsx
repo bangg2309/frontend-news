@@ -63,7 +63,6 @@ const Header: React.FC = () => {
                              sx={{flexGrow: 1, maxWidth: 100}}/>
 
                         <Box sx={{flexGrow: 0, display: 'flex', width: {xs: {width: '100%'}, md: {width: 'auto'}}}}>
-                            <Login/>
                             <Search>
                                 <SearchIconWrapper>
                                     <FontAwesomeIcon style={{color: theme.palette.text.primary}}
@@ -74,6 +73,7 @@ const Header: React.FC = () => {
                                     inputProps={{'aria-label': 'search'}}
                                 />
                             </Search>
+                            <Login/>
                         </Box>
                     </Toolbar>
                 </Container>
