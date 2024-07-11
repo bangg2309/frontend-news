@@ -6,7 +6,7 @@ import CategoryContent from "./components/category/CategoryContent";
 import ArticleDetail from "./components/articleDetail/ArticleDetail";
 import ArticleContent from "./components/articleDetail/ArticleContent";
 import {Category} from "./interfaces/Category";
-import MainContent from "./pages/MainContent";
+import MainContent from "./components/home/HomeContent";
 const category: Category = {
     name: "Giai tri",
     url: "/giai_tri",
@@ -29,7 +29,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<HomePage/>}>
                     <Route index element={<MainContent categories={categories}/>}/>
-                    <Route index element={<CategoryContent category={category}/>}/>
+                    {/*<Route index element={<CategoryContent category={category}/>}/>*/}
                     <Route path={"/:articleName"} element={<ArticleDetail/>}/>
                 </Route>
             </Routes>
