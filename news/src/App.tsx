@@ -6,17 +6,15 @@ import CategoryContent from "./components/category/CategoryContent";
 import ArticleDetail from "./components/articleDetail/ArticleDetail";
 import ArticleContent from "./components/articleDetail/ArticleContent";
 import {Category} from "./interfaces/Category";
-const category: Category = {
-    name: "Giai tri",
-    url: "/giai_tri",
-    rss: "giai-tri-36.rss"
-}
+import HomeContent from "./components/home/HomeContent";
+
 function App() {
     return (<div className={'relative'}>
             <Routes>
                 <Route path="/" element={<HomePage/>}>
-                    <Route index element={<CategoryContent category={category}/>}/>
-                    <Route path={"/:articleName"} element={<ArticleDetail/>}/>
+                    <Route index element={<HomeContent/>}/>
+                    <Route path={"/the-loai/:param"} element={<CategoryContent/>}/>
+                    <Route path={"/bai-viet/:articleName"} element={<ArticleDetail/>}/>
                 </Route>
             </Routes>
         </div>

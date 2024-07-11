@@ -10,4 +10,3 @@ export const store =configureStore({
         comments: commentsSlice.reducer
     }
 })
-export type RootState = ReturnType<typeof store.getState>;
