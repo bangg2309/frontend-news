@@ -15,7 +15,7 @@ const NavItem: React.FC<{ category: Category }> = (props) => {
     return (
         <>
             <Button component={NavLink}
-                    to={`/category/${props.category.url}`} {...bindHover(popupState)}
+                    to={`${props.category.url}`} {...bindHover(popupState)}
                     sx={{
                         textDecoration: 'none', '&:hover': {color: MAIN_CONCEPT.main},
                         color: theme.palette.text.primary,
@@ -23,7 +23,7 @@ const NavItem: React.FC<{ category: Category }> = (props) => {
                         paddingY: '10px',
                     }}
             >
-                <Typography variant={'h6'}>
+                <Typography variant={'subtitle1'} fontWeight={600}>
                     {props.category.name}
                 </Typography>
             </Button>
@@ -40,7 +40,7 @@ const NavItem: React.FC<{ category: Category }> = (props) => {
                         <Box className={"flex flex-col"}>
 
                             {props.category.subType.map((subCategory, index) => (
-                                <Box component={NavLink} to={`category/${subCategory.url}`}
+                                <Box component={NavLink} to={`${subCategory.url}`}
                                     sx={{display:'flex',justifyContent:'center',
                                         alignItems:'center',
                                         padding: '6px 8px',

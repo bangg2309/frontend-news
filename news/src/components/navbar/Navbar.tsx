@@ -42,25 +42,25 @@ const Navbar: React.FC = () => {
                                         color: theme.palette.text.primary,
                                         paddingY: '10px',
 
-                                        textDecoration: 'none',
-                                        '&:hover': {color: MAIN_CONCEPT.main}
-                                    }}>
-                                <FontAwesomeIcon color={'inherit'} icon={faHouse}/>
-                            </Button>
-                            {rssCategories.slice(1, 11).map((category, index) => (
-                                // <>
-                                <>
-                                    <NavItem category={category}/>
-                                </>))}
-                            <Button sx={{
-                                color: theme.palette.text.primary, paddingY: '10px',
-                            }}
-                                    onClick={handlePopupFullCategory}
-                            >
-                                <FontAwesomeIcon icon={faBars}/>
-                            </Button>
-                        </Toolbar>
-                    </Container>
+                                    textDecoration: 'none',
+                                    '&:hover': {color: MAIN_CONCEPT.main}
+                                }}>
+                            <FontAwesomeIcon color={'inherit'} icon={faHouse}/>
+                        </Button>
+                        {rssCategories.slice(1, 11).map((category, index) => (
+                            // <>
+                            <>
+                                <NavItem category={category}/>
+                            </>))}
+                        <Button sx={{
+                            color: theme.palette.text.primary, paddingY: '10px',
+                        }}
+                                onClick={handlePopupFullCategory}
+                        >
+                            <FontAwesomeIcon icon={faBars}/>
+                        </Button>
+                    </Toolbar>
+                </Container>
                 </Box>
                 <FullCategoryPage/>
             </AppBar>
