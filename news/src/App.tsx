@@ -29,7 +29,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<HomePage/>}>
                     <Route index element={<MainContent categories={categories}/>}/>
-                    {/*<Route index element={<CategoryContent category={category}/>}/>*/}
+                    <Route index element={<CategoryContent category={category}/>}/>
                     <Route path={"/:articleName"} element={<ArticleDetail/>}/>
                 </Route>
             </Routes>
