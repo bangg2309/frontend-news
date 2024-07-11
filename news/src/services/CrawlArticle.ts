@@ -5,7 +5,7 @@ import {ArticleData, ContentItem, RelatedArticle} from "../interfaces/ArticleDat
 const BASE_URL = 'https://tienphong.vn/';
 const fetchArticleData = async (url: string): Promise<ArticleData | null> => {
     try {
-        const crawlUrl =`${BASE_URL}${url}`
+        const crawlUrl = `${BASE_URL}${url}`
 
         const response = await axios.get(crawlUrl);
         const html = response.data;
@@ -41,7 +41,7 @@ const fetchArticleData = async (url: string): Promise<ArticleData | null> => {
         });
         const relatedArticle: RelatedArticle[] = [];
         $('.box-content .story').each((i, elem) => {
-            const relatedUrl = $(elem).find('a.cms-link').attr('href');
+            const relatedUrl = ($(elem).find('a.cms-link').attr('href') || '').replace(BASE_URL, '');
             const relatedTitle = $(elem).find('h3.story__heading a').text().trim();
             const relatedImage = $(elem).find('img').attr('data-src');
             if (relatedUrl && relatedTitle && relatedImage) {
