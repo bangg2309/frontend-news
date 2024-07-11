@@ -14,7 +14,7 @@ const HomePage: React.FC = () => {
     const loading = useSelector(loadingSelector);
     return (<>
             <Header/>
-                <Navbar/>
+            <Navbar/>
             <Container fixed maxWidth={'lg'}>
                 <Outlet/>
             </Container>

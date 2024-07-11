@@ -11,7 +11,6 @@ import {RSSItem} from "../../interfaces/RSSItem";
 const TopStorySmall: React.FC<{ item: RSSItem }> = (props) => {
     return (
         <Card sx={{boxShadow: 'unset', padding: 0, maxWidth: 250}} component={NavLink} to={props.item.link} className={'mb-2 p-2 '}>
-            {/*<StyleCard>*/}
             <CardActionArea>
                 <CardMedia
                     component="img"

@@ -8,3 +8,4 @@ export const store =configureStore({
         fullCategory: fullCategory.reducer,
     }
 })
+export type RootState = ReturnType<typeof store.getState>

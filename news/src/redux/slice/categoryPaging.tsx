@@ -21,7 +21,5 @@ export default createSlice({
             state.totalPage = Math.ceil(action.payload.length / state.perPage);
             state.totalPost = action.payload.length;
         },
-
-
-    }
+    },
 })

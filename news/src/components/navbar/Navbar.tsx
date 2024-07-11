@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
                                 }}>
                             <FontAwesomeIcon color={'inherit'} icon={faHouse}/>
                         </Button>
-                        {rssCategories.slice(1, 10).map((category, index) => (
+                        {rssCategories.slice(1, 11).map((category, index) => (
                             // <>
                             <>
                                 <NavItem category={category}/>
