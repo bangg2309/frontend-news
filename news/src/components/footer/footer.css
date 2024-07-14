@@ -5,12 +5,14 @@
     padding-top: 1.2rem;
     padding-bottom: .8rem;
     border-top: 10px solid #dee2e6;
-    border-bottom: 1px solid #dee2e6
+    border-bottom: 1px solid #dee2e6;
+    margin: auto;
+    max-width: 1280px
 }
 
 .site-footer .nav-footer {
     font-size: 14px;
-    color: #3b3d3f;
+    /*color: #3b3d3f;*/
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,11 +24,11 @@
 .site-footer .nav-footer a {
     display: inline-flex;
     padding: 0 3rem;
-    color: #343a40
+    /*color: #343a40*/
 }
 
 .site-footer .nav-footer a:hover {
-    color: #a50a02
+    color: #2d67ad
 }
 
 .site-footer .nav-footer button {
@@ -49,15 +51,15 @@
 }
 
 .site-footer .nav-footer button:hover {
-    border: 1px solid #a50a02;
-    background-color: #a50a02;
+    border: 1px solid #2d67ad;
+    background-color: #2d67ad;
     color: #fff
 }
 
 .site-footer .footer-info {
     font-size: 14px;
     padding-top: 1.2rem;
-    color: #6c757d
+    /*color: #6c757d*/
 }
 
 .site-footer .footer-info p {

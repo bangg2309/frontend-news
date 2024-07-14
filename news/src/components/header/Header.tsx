@@ -155,7 +155,6 @@ const Header: React.FC = () => {
                                     '& .MuiInputBase-input': {
                                         width: '8rem',
                                         transition: theme.transitions.create('width', {duration: 500}),
-
                                     }
                                 }}
                             />
