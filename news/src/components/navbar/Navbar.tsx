@@ -10,6 +10,7 @@ import {useDispatch, useSelector} from "react-redux";
 import fullCategory from "../../redux/slice/fullCategory";
 import {loadingSelector} from "../../redux/selector/fullCategorySelector";
 import FullCategoryPage from "./FullCategory";
+import axios from "axios";
 
 
 const Navbar: React.FC = () => {
@@ -17,12 +18,13 @@ const Navbar: React.FC = () => {
 
     const theme = useTheme();
 
-    const [fullPageCategory, setFullPageCategory] = React.useState<boolean>(false)
-
+    // console.log(navigator.geolocation.getCurrentPosition((position) => {
+    //     console.log(position.coords.latitude);
+    //     console.log(position.coords.longitude);
+    // }))
     const loading = useSelector(loadingSelector);
     const handlePopupFullCategory = () => {
-        setFullPageCategory(!fullPageCategory)
-        dispatch(fullCategory.actions.setLoading(!fullPageCategory));
+        dispatch(fullCategory.actions.setLoading(!loading));
     };
     return (
         <>

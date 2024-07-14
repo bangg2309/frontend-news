@@ -1,11 +1,9 @@
 import {configureStore} from "@reduxjs/toolkit";
-import categoryPageSlice from "../slice/categoryPaging";
 import fullCategory from "../slice/fullCategory";
 import commentsSlice from "../slice/commentsSlice";
 
-export const store =configureStore({
-    reducer:{
-        paging: categoryPageSlice.reducer,
+export const store = configureStore({
+    reducer: {
         fullCategory: fullCategory.reducer,
         comments: commentsSlice.reducer
     }

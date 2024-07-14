@@ -21,7 +21,7 @@ const HorizonePost: React.FC<{
                     <CardContent>
                         <NewsType category={props.NewsView.category}
                                   variant={"subtitle1"}/>
-                        <TitlePage title={props.NewsView.title} size={"subtitle1"} url={props.NewsView.link}/>
+                        <TitlePage title={props.NewsView.title} size={"h6"} url={props.NewsView.link}/>
                         <Typography variant="body2" color="text.secondary">
                             {props.NewsView.description.replace(/<[^>]*>/g, '')}
                         </Typography>
