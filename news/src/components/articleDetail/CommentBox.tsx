@@ -34,7 +34,7 @@ const CommentBox: React.FC = () => {
 
 
     const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-       setIsChangingUsername(!isChangingUsername);
+        setIsChangingUsername(!isChangingUsername);
         if (!isChangingUsername) {
             setIsEditingUsername(true);
         } else {
