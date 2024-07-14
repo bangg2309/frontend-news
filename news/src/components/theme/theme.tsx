@@ -2,6 +2,7 @@ import React from 'react';
 import {createTheme, experimental_extendTheme as extendTheme} from "@mui/material/styles";
 import {blue, red} from "@mui/material/colors";
 import {hover} from "@testing-library/user-event/dist/hover";
+import {InputBase} from "@mui/material";
 
 export enum MAIN_CONCEPT {
     main = '#2d67ad',
@@ -71,11 +72,11 @@ const theme = extendTheme({
                     }
                 }
                 ,
-                MuiAppBar:{
-                    styleOverrides:{
-                        root:{
-                            height:'fit-content',
-                            padding:'0',
+                MuiAppBar: {
+                    styleOverrides: {
+                        root: {
+                            height: 'fit-content',
+                            padding: '0',
                             backdropFilter: 'blur(10px)',
                             boxShadow: 'unset',
                             background: 'inherit'
@@ -91,16 +92,49 @@ const theme = extendTheme({
                         }
                     }
                 },
-
-                MuiCard: {
+                MuiTextField: {
                     styleOverrides: {
                         root: {
-                            padding: '2px 2px',
-                            borderRadius:
-                                '8px'
+                            '& label.Mui-focused': {
+                                color: MAIN_CONCEPT.main,
+                            },
+                        },
+                    },
+                },
+                MuiOutlinedInput:{
+                    styleOverrides:{
+                        root:{
+                            '&.Mui-focused .MuiOutlinedInput-notchedOutline':{
+                                borderColor: MAIN_CONCEPT.main,
+                            }
                         }
                     }
-                }
+                },
+                MuiFilledInput: {
+                    styleOverrides: {
+                        root: {
+                            '&.Mui-focused:after': {
+                                borderBottom: '2px solid ' + MAIN_CONCEPT.main,
+                            },
+                        },
+                    },
+                },
+                MuiInputBase: {
+                    styleOverrides: {
+                        root: {
+                            '& .MuiInputBase-input': {
+                                '&:focus': {
+                                    '&::placeholder': {
+                                        color: MAIN_CONCEPT.main,
+                                    },
+                                },
+                            },
+                            '&.Mui-focused .MuiInputAdornment-root': {
+                                color: MAIN_CONCEPT.main,
+                            }
+                        },
+                    },
+                },
             }
     })
 ;
