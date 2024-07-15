@@ -19,7 +19,7 @@ const Breedcrumb: React.FC<{ category: Category }> = (props) => {
             </h2>
             <Stack direction={"row"} spacing={2} className={"mb-1"}>
 
-                {/*    print subtype in category*/}
+
                 {category.subType?.map((subtype, index) => {
                     return (
                         <SubtypeItem subtype={subtype} key={index}/>

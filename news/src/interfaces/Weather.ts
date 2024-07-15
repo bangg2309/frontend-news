@@ -1,6 +1,6 @@
 export interface Weather {
-    id: number,
-    name: string,
-    temperature: string,
-    phrase: string
+    id?: number,
+    province: string|any,
+    temperature: string | any,
+    phrase: string|any
 }

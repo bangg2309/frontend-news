@@ -1,13 +1,13 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleUser, faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
 import {
-    alpha,
+    alpha, Autocomplete,
     Box,
     Button,
-    Container,
+    Container, Divider,
     InputAdornment,
-    InputBase,
+    InputBase, Select, Stack,
     styled,
     TextField,
     Toolbar,
@@ -17,6 +17,8 @@ import {
 import {MAIN_CONCEPT} from "../theme/theme";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
+import {fetchLocate, fetchWeather} from "../../services/WeatherServices";
+import {Weather} from "../../interfaces/Weather";
 
 const Search = styled('div')(({theme}) => ({
     position: 'relative',
@@ -64,42 +66,48 @@ const StyledInputBase = styled(InputBase)(({theme}) => ({
 }));
 
 const Header: React.FC = () => {
+    const [weathers, setWeathers] = React.useState<Weather[]>([]); // [weather, setWeather
+    const [locate, setLocate] = React.useState<string>('');
 
     const theme = useTheme();
     const navi = useNavigate();
+
     const handleSearchSubmit = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter') {
             navi(`/tim-kiem/${(event.target as HTMLInputElement).value}`);
         }
     }
+    const intervalRef = useRef<NodeJS.Timeout | null>(null);
     useEffect(() => {
+        if (locate === '')
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((position) => {
+                    console.log(position.coords.latitude.toString(), position.coords.longitude.toString());
+                    fetchLocate(position.coords.latitude.toString(), position.coords.longitude.toString()).then((data) => {
+                        setLocate(() => {
+                            return data;
+                        });
+                    });
+                })
+            }
+    }, []);
+    useEffect(() => {
+        intervalRef.current = setInterval(() => {
+            //reset list of weather
+
+            fetchWeather().then((data) => {
+                setWeathers(data);
+            })
+
+        }, 3000);
+        return () => {
+            if (intervalRef.current) {
+                clearInterval(intervalRef.current);
+            }
+        };
         //get locate
-        navigator.geolocation.getCurrentPosition((position) => {
-            console.log(position.coords.latitude);
-            console.log(position.coords.longitude);
-        })
-    },[])
-    // useEffect(() => {
-    //     console.log(456)
-    //     const fetchDate = async () => {
-    //         console.log(123)
-    //         try {
-    //             console.log(345)
-    //             const response = await axios
-    //                 .get('http://localhost:5000/weather');
-    //
-    //             console.log(response);
-    //             // setData(result);
-    //         } catch (error: any) {
-    //             console.log(error.message)
-    //             // setError(error.message);
-    //         } finally {
-    //             console.log('final')
-    //             // setLoading(false);
-    //         }
-    //     }
-    //     fetchDate();
-    // }, []);
+
+    }, [])
     return (
         <>
             <Box position="static" sx={{
@@ -109,10 +117,49 @@ const Header: React.FC = () => {
                 <Container maxWidth="lg">
                     <Toolbar disableGutters sx={{flex: 'initial', justifyContent: 'space-around'}}>
                         {/*<Avatar alt="logo" src={`${process.env.PUBLIC_URL}/logo.png`} variant={"rounded"}/>*/}
-                        <Box>
+                        <Stack direction={'row'}>
                             <Box component="img" src={`${process.env.PUBLIC_URL}/logo.png`}
                                  sx={{flexGrow: 1, maxWidth: 100}}/>
-                        </Box>
+                            <Divider orientation="vertical" sx={{mx: 1, borderColor: "#27272727"}} variant="fullWidth"
+                                     flexItem/>
+
+                            {/*<Select*/}
+                            {/*    value={locate}*/}
+                            {/*    onChange={(event) => {*/}
+                            {/*        setLocate(event.target.value as string);*/}
+                            {/*    }}*/}
+                            {/*>*/}
+                            <Autocomplete
+                                freeSolo
+                                size={'small'}
+                                sx={{minWidth: '10rem'}}
+                                disableClearable
+                                value={locate}
+                                onChange={(event, value) => {
+                                    setLocate(value as string);
+                                }}
+                                options={weathers.map((option) => option.province)}
+                                renderInput={(params) => (
+                                    <TextField
+                                        {...params}
+                                        InputProps={{
+                                            ...params.InputProps,
+                                            type: 'search',
+                                        }}
+                                    />
+                                )}
+                            />
+                            <Divider orientation="vertical" sx={{mx: 1, borderColor: "#27272727"}} variant="fullWidth"
+                                     flexItem/>
+                            <Typography variant="subtitle1" sx={{flexGrow: 1, fontWeight: 400,display:'flex', alignItems:'center'}}>
+                                {weathers.map((weather) => {
+                                    if (locate.includes(weather.province)) {
+                                        return `${weather.temperature.trim()}C`
+                                    }
+                                })
+                                }
+                            </Typography>
+                        </Stack>
 
                         <Box sx={{flexGrow: 0, display: 'flex', width: {xs: {width: '100%'}, md: {width: 'auto'}}}}>
                             <Button sx={{":hover": {color: MAIN_CONCEPT.main}}}>

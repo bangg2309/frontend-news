@@ -5,6 +5,6 @@ import commentsSlice from "../slice/commentsSlice";
 export const store = configureStore({
     reducer: {
         fullCategory: fullCategory.reducer,
-        comments: commentsSlice.reducer
+        comments: commentsSlice.reducer,
     }
 })
