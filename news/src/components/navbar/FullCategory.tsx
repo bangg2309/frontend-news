@@ -1,5 +1,5 @@
 import React from "react";
-import {AppBar, Box, Button, Container, Grid, Link, Typography, useTheme} from "@mui/material";
+import {AppBar, Box, Button, Container, Grid, Link, Stack, Typography, useTheme} from "@mui/material";
 import {useSelector} from "react-redux";
 import {loadingSelector} from "../../redux/selector/fullCategorySelector";
 import {rssCategories} from "../../services/rssCategories";
@@ -84,6 +84,7 @@ const FullCategoryPage: React.FC = () => {
                         </Grid>
                         <Grid item xs={2} md={4}>
                            <ModeToggle/>
+                            {/*<Box component={NavLink} to={"https://vnexpress.net/microservice/weather"}> nhấn đe</Box>*/}
                         </Grid>
                     </Grid>
                 </Container>
