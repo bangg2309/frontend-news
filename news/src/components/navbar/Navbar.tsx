@@ -33,14 +33,14 @@ const Navbar: React.FC = () => {
 
                     }}>
                 <Box sx={{ borderBottom: '1px solid rgba(0, 0, 0, 0.12)'}}>
-                <Container maxWidth="lg">
-                    <Toolbar disableGutters sx={{
-                        paddingY:1
-                    }}>
-                        <Button component={NavLink} to={'/'}
-                                sx={{
-                                    color: theme.palette.text.primary,
-                                    paddingY: '10px',
+                    <Container maxWidth="lg">
+                        <Toolbar disableGutters sx={{
+                            paddingY:1
+                        }}>
+                            <Button component={NavLink} to={'/'}
+                                    sx={{
+                                        color: theme.palette.text.primary,
+                                        paddingY: '10px',
 
                                     textDecoration: 'none',
                                     '&:hover': {color: MAIN_CONCEPT.main}

@@ -8,4 +8,3 @@ export const getCategory = (name: string) => {
 export const getCategoryByName = (name: string) => {
     return rssCategories.find((category) => category.name === name);
 }
-
