@@ -9,7 +9,7 @@ export const store =configureStore({
         paging: categoryPageSlice.reducer,
         fullCategory: fullCategory.reducer,
         comments: commentsSlice.reducer,
-        auth: authSlice.reducer
+        auth: authSlice.reducer,
     }
 })
 

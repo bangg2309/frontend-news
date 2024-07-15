@@ -66,7 +66,7 @@ const CommentBox: React.FC = () => {
                         color: 'inherit',
                     }}
                 >
-                    <FontAwesomeIcon icon={faSmile}/>
+                    {/*<FontAwesomeIcon icon={faSmile}/>*/}
                 </IconButton>
             </Box>
             <Box sx={{display: 'flex', justifyContent: 'flex-end', alignItems: 'center', mt: 1}}>

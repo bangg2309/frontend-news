@@ -7,6 +7,7 @@ import ArticleDetail from "./components/articleDetail/ArticleDetail";
 import ArticleContent from "./components/articleDetail/ArticleContent";
 import {Category} from "./interfaces/Category";
 import HomeContent from "./components/home/HomeContent";
+import Profile from "./components/profile/Profile";
 
 function App() {
     return (<div className={'relative'}>
@@ -15,6 +16,7 @@ function App() {
                     <Route index element={<HomeContent/>}/>
                     <Route path={"/the-loai/:param"} element={<CategoryContent/>}/>
                     <Route path={"/bai-viet/:articleName"} element={<ArticleDetail/>}/>
+                    <Route path={"/profile"} element={<Profile/>}/>
                 </Route>
             </Routes>
         </div>

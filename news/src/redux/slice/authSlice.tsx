@@ -1,10 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {users} from "../../data/usersData";
+import {User} from "../../interfaces/User";
 
-interface User {
-    email: string;
-    password: string;
-}
 
 interface AuthState {
     user: User | null;
@@ -36,8 +33,11 @@ const authSlice = createSlice({
             state.user = null;
             state.error = null;
         },
+        updateUser: (state, action: PayloadAction<User>) => {
+            state.user = action.payload;
+        },
     },
 });
 
-export const {login, logout} = authSlice.actions;
+export const {login, logout, updateUser} = authSlice.actions;
 export default authSlice;
