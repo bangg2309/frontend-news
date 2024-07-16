@@ -19,6 +19,7 @@ import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {fetchLocate, fetchWeather} from "../../services/WeatherServices";
 import {Weather} from "../../interfaces/Weather";
+import Login from "../login/Login";
 
 const Search = styled('div')(({theme}) => ({
     position: 'relative',
@@ -79,6 +80,9 @@ const Header: React.FC = () => {
     }
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
     useEffect(() => {
+        fetchWeather().then((data) => {
+            setWeathers(data);
+        })
         if (locate === '')
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition((position) => {
@@ -99,7 +103,7 @@ const Header: React.FC = () => {
                 setWeathers(data);
             })
 
-        }, 3000);
+        }, 30000);
         return () => {
             if (intervalRef.current) {
                 clearInterval(intervalRef.current);

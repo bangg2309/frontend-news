@@ -63,7 +63,7 @@ const Login: React.FC = () => {
         setAnchorEl(null);
     };
     const handleProfileRedirect = () => {
-        navigate('/profile');
+        navigate('/tai-khoan');
         handleMenuClose();
     };
 

@@ -19,9 +19,9 @@ const ContentDetail: React.FC<ContentDetailProps> = ({title, sapo, children}) =>
     return (
         <Typography>
             <div style={{fontFamily: "Arial"}}>
-                <h1 className="font-bold" style={titleStyle}>
-                    {title}
-                </h1>
+                    <h1 className="font-bold" style={titleStyle}>
+                        {title}
+                    </h1>
                 <h2 className=" text-base font-bold leading-6 mb-5 mt-5 ">
                     {sapo}
                 </h2>
@@ -30,7 +30,8 @@ const ContentDetail: React.FC<ContentDetailProps> = ({title, sapo, children}) =>
                 </div>
             </div>
         </Typography>
-    );
+    )
+        ;
 };
 
 export default ContentDetail;

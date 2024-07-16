@@ -1,10 +1,12 @@
 import React from "react";
-import {Box} from "framer-motion";
+import {Box} from "@mui/material";
 
 const SavePost: React.FC = () => {
     return (
-        <Box>
-            </Box>
-
+       <>
+       <Box>
+              <h1>Save Post</h1>
+       </Box>
+       </>
     )
 }

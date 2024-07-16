@@ -8,7 +8,6 @@ const ProfileDetail = ({user}: { user: User }) => {
     const dispatch = useDispatch();
     const [editMode, setEditMode] = useState<{ [key: string]: boolean }>({});
     const [editedUser, setEditedUser] = useState<User>(user);
-
     const handleEdit = (field: string) => {
         setEditMode({...editMode, [field]: true});
     };

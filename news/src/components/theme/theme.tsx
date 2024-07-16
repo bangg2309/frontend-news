@@ -64,6 +64,9 @@ const theme = extendTheme({
         },
         components:
             {
+                MuiIcon:{
+                    // variants
+                },
                 MuiCardMedia: {
                     styleOverrides: {
                         root: {
