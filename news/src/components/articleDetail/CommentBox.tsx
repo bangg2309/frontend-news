@@ -3,11 +3,11 @@ import {useSelector, useDispatch} from 'react-redux';
 import {Box, TextField, Button, IconButton, Typography, Avatar, Link} from '@mui/material';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faSmile} from '@fortawesome/free-solid-svg-icons';
-import {RootState} from "../../redux/store/store";
 import {addComment} from "../../redux/slice/commentsSlice";
+import {RootState} from "../../redux/store/store";
 
 const CommentBox: React.FC = () => {
-    const comments = useSelector((state: RootState) => state.comments.comments);
+    // const comments = useSelector((state: RootState) => state.comments.comments);
     const [commentText, setCommentText] = useState('');
     const [username, setUsername] = useState('Đọc giả');
     const [isEditingUsername, setIsEditingUsername] = useState(false);
@@ -17,13 +17,13 @@ const CommentBox: React.FC = () => {
     const handleCommentSubmit = () => {
         if (commentText.trim() !== '') {
             const newComment = {
-                id: comments.length + 1,
+                // id: comments.length + 1,
                 username,
                 text: commentText,
                 time: new Date().toLocaleString(),
                 articlePath: window.location.pathname,
             };
-            dispatch(addComment(newComment));
+            // dispatch(addComment(newComment));
             setCommentText('');
         }
     };
@@ -66,7 +66,7 @@ const CommentBox: React.FC = () => {
                         color: 'inherit',
                     }}
                 >
-                    <FontAwesomeIcon icon={faSmile}/>
+                    {/*<FontAwesomeIcon icon={faSmile}/>*/}
                 </IconButton>
             </Box>
             <Box sx={{display: 'flex', justifyContent: 'flex-end', alignItems: 'center', mt: 1}}>
@@ -87,43 +87,44 @@ const CommentBox: React.FC = () => {
                             {username}
                         </Typography>
                     )}
-                    <Typography sx={{fontSize: 12, cursor: 'pointer', textDecoration: 'underline'}} onClick={handleLinkClick}>
-                        {isChangingUsername ? 'Xác nhận tên hiển thị' : 'Sử dụng tên hiển thị khác?' }
+                    <Typography sx={{fontSize: 12, cursor: 'pointer', textDecoration: 'underline'}}
+                                onClick={handleLinkClick}>
+                        {isChangingUsername ? 'Xác nhận tên hiển thị' : 'Sử dụng tên hiển thị khác?'}
                     </Typography>
                 </Box>
                 <Button variant="contained" color="info" onClick={handleCommentSubmit}>
                     Gửi
                 </Button>
             </Box>
-            <Box sx={{mt: 2}}>
-                {comments
-                    .filter((comment) => comment.articlePath === window.location.pathname)
-                    .map((comment) => (
-                        <Box key={comment.id} sx={{display: 'flex', alignItems: 'center', mb: 2}}>
-                            <Avatar sx={{width: 24, height: 24, mr: 1}}>
-                                {comment.username.charAt(0)}
-                            </Avatar>
-                            <Box sx={{flex: 1}}>
-                                <Typography
-                                    variant="body2"
-                                    sx={{fontWeight: 'bold', display: 'flex', justifyContent: 'space-between'}}
-                                >
-                                    {comment.username}
-                                    <span
-                                        style={{
-                                            fontWeight: 'normal',
-                                            fontSize: '0.8em',
-                                            color: 'gray',
-                                        }}
-                                    >
-                                        {comment.time}
-                                    </span>
-                                </Typography>
-                                <Typography variant="body2">{comment.text}</Typography>
-                            </Box>
-                        </Box>
-                    ))}
-            </Box>
+            {/*<Box sx={{mt: 2}}>*/}
+            {/*    {comments*/}
+            {/*        .filter((comment) => comment.articlePath === window.location.pathname)*/}
+            {/*        .map((comment) => (*/}
+            {/*            <Box key={comment.id} sx={{display: 'flex', alignItems: 'center', mb: 2}}>*/}
+            {/*                <Avatar sx={{width: 24, height: 24, mr: 1}}>*/}
+            {/*                    {comment.username.charAt(0)}*/}
+            {/*                </Avatar>*/}
+            {/*                <Box sx={{flex: 1}}>*/}
+            {/*                    <Typography*/}
+            {/*                        variant="body2"*/}
+            {/*                        sx={{fontWeight: 'bold', display: 'flex', justifyContent: 'space-between'}}*/}
+            {/*                    >*/}
+            {/*                        {comment.username}*/}
+            {/*                        <span*/}
+            {/*                            style={{*/}
+            {/*                                fontWeight: 'normal',*/}
+            {/*                                fontSize: '0.8em',*/}
+            {/*                                color: 'gray',*/}
+            {/*                            }}*/}
+            {/*                        >*/}
+            {/*                            {comment.time}*/}
+            {/*                        </span>*/}
+            {/*                    </Typography>*/}
+            {/*                    <Typography variant="body2">{comment.text}</Typography>*/}
+            {/*                </Box>*/}
+            {/*            </Box>*/}
+            {/*        ))}*/}
+            {/*</Box>*/}
         </Box>
     );
 };

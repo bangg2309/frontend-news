@@ -1,6 +1,5 @@
 import React from 'react';
-import {Typography} from "@mui/material";
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 interface RelatedArticle {
     url: string;
@@ -12,7 +11,12 @@ interface RelatedArticlesProps {
     articles: RelatedArticle[];
 }
 
+
 const RelatedArticles: React.FC<RelatedArticlesProps> = ({articles}) => {
+    const navigate = useNavigate();
+    const handleNavigation = (url: string) => {
+        navigate('/bai-viet/' + url);
+    };
     return (
         // <Typography>
         <div className="horizontal-box-wrapper sticky top-20 pb-4">
@@ -22,20 +26,21 @@ const RelatedArticles: React.FC<RelatedArticlesProps> = ({articles}) => {
             </h2>
             <div>
                 {articles.map((article, index) => (
-                    <div key={index} className="grid grid-cols-2 mb-5 max-w-xs">
+                    <div key={index}
+                         className="grid grid-cols-2 mb-5 max-w-xs cursor-pointer"
+                         onClick={() => handleNavigation(article.url)}>
                         <div className="mr-4">
-                            <Link className={"block h-0 pb-[66.66%] relative w-full"}
-                                  to={article.url} title={article.title}>
+                            <div className={"block h-0 pb-[66.66%] relative w-full"}
+                                 title={article.title}>
                                 <img src={article.image} alt={article.title}/>
-                            </Link>
+                            </div>
                         </div>
                         <div className="leading-5">
                             <h3 className="vnn-title">
-                                <Link className={" font-sans text-[15px] leading-[19px]"}
-                                      to={article.url}
-                                      title={article.title}>
+                                <div className={" font-sans text-[15px] leading-[19px]"}
+                                     title={article.title}>
                                     {article.title}
-                                </Link>
+                                </div>
                             </h3>
                         </div>
                     </div>

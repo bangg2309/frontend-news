@@ -10,6 +10,7 @@ type SubtypeItemProps = {
 }
 
 const SubtypeItem: React.FC<SubtypeItemProps> = ({subtype}) => {
+
     const theme = useTheme();
     return (
         <Button sx={{

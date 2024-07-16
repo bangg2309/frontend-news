@@ -45,12 +45,12 @@ const BoxRemaker: React.FC<{ item: RSSItem[] }> = (props) => {
             <Box sx={{maxHeight: 250}}>
                 <Slider {...settings} >
                     {props.item.map((item, index) => {
-                        var margin = index === 0 ? "pl-0" : "pl-1";
-                        margin += " h-fit"
                         return (
-                            <div key={index} className={margin}>
+                            <Box key={index}
+                                 sx={{paddingLeft: index === 0 ? 0 : 1, height: "fit-content"}}
+                            >
                                 <RemakerItem item={item}/>
-                            </div>
+                            </Box>
                         )
                     })}
                 </Slider>

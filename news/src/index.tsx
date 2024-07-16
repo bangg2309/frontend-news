@@ -18,7 +18,7 @@ root.render(
             <CssVarsProvider theme={light}>
                 <CssBaseline/>
                 <Provider store={store}>
-                <App/>
+                    <App/>
                 </Provider>
             </CssVarsProvider>
         </BrowserRouter>

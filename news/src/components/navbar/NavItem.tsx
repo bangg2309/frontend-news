@@ -37,26 +37,26 @@ const NavItem: React.FC<{ category: Category }> = (props) => {
                                        vertical: 'top',
                                        horizontal: 'center',
                                    }}>
-                        <Box className={"flex flex-col"}>
-
+                        <Box sx={{display:'flex', flexDirection:'column'}}>
                             {props.category.subType.map((subCategory, index) => (
                                 <Box component={NavLink} to={`${subCategory.url}`}
-                                    sx={{display:'flex',justifyContent:'center',
-                                        alignItems:'center',
-                                        padding: '6px 8px',
-                                        fontWeight: 500,
-                                        fontSize: '0.875rem',
-                                        lineHeight: 1.75,
-                                        color:theme.palette.text.primary,
-                                        '&:hover': {
-                                            backgroundColor: 'rgba(0, 0, 0, 0.04)',
-                                            borderRadius: '4px',
-                                            color: MAIN_CONCEPT.main
-                                        }
+                                     sx={{
+                                         display: 'flex', justifyContent: 'center',
+                                         alignItems: 'center',
+                                         padding: '6px 8px',
+                                         fontWeight: 500,
+                                         fontSize: '0.875rem',
+                                         lineHeight: 1.75,
+                                         color: theme.palette.text.primary,
+                                         '&:hover': {
+                                             backgroundColor: 'rgba(0, 0, 0, 0.04)',
+                                             borderRadius: '4px',
+                                             color: MAIN_CONCEPT.main
+                                         }
 
-                                    }} key={index}>
+                                     }} key={index}>
                                     <Typography variant={'subtitle1'} color={'inherit'}>
-                                    {subCategory.name}
+                                        {subCategory.name}
                                     </Typography>
                                 </Box>
                             ))}
