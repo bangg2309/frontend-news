@@ -24,12 +24,14 @@ const authSlice = createSlice({
             );
             if (user) {
                 state.user = user;
+                localStorage.setItem('IsLogin', 'true');
                 state.error = null;
             } else {
                 state.error = 'Email hoặc mật khẩu không đúng';
             }
         },
         logout: (state) => {
+            localStorage.removeItem('IsLogin');
             state.user = null;
             state.error = null;
         },

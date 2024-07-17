@@ -1,11 +1,11 @@
-import React from 'react';
-import {Box, Typography, Avatar, List, ListItem, ListItemText, Link, Divider, Button, Container} from '@mui/material';
+import React, {useEffect} from 'react';
+import {Avatar, Box, Container, Divider, Link, List, ListItem, ListItemText, Typography} from '@mui/material';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
-import ProfileDetail from "./ProfileDetail";
 import {useDispatch, useSelector} from 'react-redux';
 import {RootState} from "../../redux/store/store";
 import {logout} from "../../redux/slice/authSlice";
+import {Outlet} from "react-router-dom";
 
 const Profile = () => {
     const dispatch = useDispatch();
@@ -83,7 +83,8 @@ const Profile = () => {
                         </Typography>
                     </Box>
                 </Box>
-                <ProfileDetail user={user}/>
+                <Outlet/>
+                {/*<ProfileDetail user={user}/>*/}
             </Box>
         </Container>
     );
