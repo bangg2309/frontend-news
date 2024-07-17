@@ -1,13 +1,13 @@
 import axios from "axios";
 import {Weather} from "../interfaces/Weather";
-import {parseStringPromise} from "xml2js";
 
 export const fetchWeather = async (): Promise<Weather[]> => {
     try {
-        const response = await axios
+        const response  = await axios
             .get('http://localhost:5000/weather');
         // const parsedData = await parseStringPromise();
         const items = response.data;
+        // console.log(items)
         return Object.entries(items).map(([key, value]): Weather => {
             return {
                 province: key,

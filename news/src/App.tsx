@@ -10,14 +10,19 @@ import Profile from "./components/profile/Profile";
 import HomeContent from "./components/home/HomeContent";
 import SearchContent from "./components/search/SearchContent";
 import MainContent from "./components/home/HomeContent";
+import ProfileDetail from "./components/profile/ProfileDetail";
+
 function App() {
     return (<div className={'relative'}>
             <Routes>
                 <Route path="/" element={<HomePage/>}>
-                    {/*<Route index element={<HomeContent/>}/>*/}
+                    <Route index element={<HomeContent/>}/>
                     <Route path={"/the-loai/:param"} element={<CategoryContent/>}/>
                     <Route path={"/bai-viet/:articleName"} element={<ArticleDetail/>}/>
-                    <Route path={"/profile"} element={<Profile/>}/>
+                    <Route path={"/tai-khoan"} element={<Profile/>}>
+                        {/*<Route path={"/"} element={<ProfileDetail/>}/>*/}
+                        <Route path={"bai-viet-da-luu"} element={<Profile/>}/>
+                    </Route>
                     <Route path={"/tim-kiem"} element={<SearchContent/>}>
                         <Route path={":search"} element={<SearchContent/>}/>
                     </Route>

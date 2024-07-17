@@ -1,4 +1,6 @@
-export const users = [
+import {User} from "../interfaces/User";
+
+export const users:User[] = [
     {
         id: 1,
         email: "bangg2309@gmail.com",
@@ -7,7 +9,6 @@ export const users = [
         phone: "0842314569",
         address: "Thủ Đức, TP.HCM",
         avatar: "https://i.ibb.co/3vSLgZS/avatar.jpg"
-
     },
     {
         id: 2,
@@ -15,6 +16,6 @@ export const users = [
         password: "user",
         name: "User",
         phone: "0123456789",
-        address: "Quận 1, TP.HCM"
+        address: "Quận 1, TP.HCM",
     }
 ]
