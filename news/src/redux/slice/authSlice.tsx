@@ -6,11 +6,13 @@ import {User} from "../../interfaces/User";
 interface AuthState {
     user: User | null;
     error: string | null;
+    isLogin: boolean;
 }
 
 const initialState: AuthState = {
-    user: null,
+    user: JSON.parse(sessionStorage.getItem('user') || 'null'),
     error: null,
+    isLogin: JSON.parse(sessionStorage.getItem('isLogin') || 'false'),
 };
 
 const authSlice = createSlice({
@@ -23,17 +25,25 @@ const authSlice = createSlice({
                 (user) => user.email === email && user.password === password
             );
             if (user) {
-                state.user = user;
-                localStorage.setItem('IsLogin', 'true');
+                state.user = action.payload;
                 state.error = null;
+                state.isLogin = true;
+                sessionStorage.setItem('user', JSON.stringify(action.payload));
+                sessionStorage.setItem('isLogin', 'true');
             } else {
+                state.user = null;
                 state.error = 'Email hoặc mật khẩu không đúng';
+                state.isLogin = false;
+                sessionStorage.setItem('isLogin', 'false');
             }
         },
         logout: (state) => {
             localStorage.removeItem('IsLogin');
             state.user = null;
             state.error = null;
+            state.isLogin = false;
+            sessionStorage.removeItem('user');
+            sessionStorage.setItem('isLogin', 'false');
         },
         updateUser: (state, action: PayloadAction<User>) => {
             state.user = action.payload;
@@ -41,5 +51,5 @@ const authSlice = createSlice({
     },
 });
 
-export const {login, logout, updateUser} = authSlice.actions;
+export const {login, logout,updateUser} = authSlice.actions;
 export default authSlice;

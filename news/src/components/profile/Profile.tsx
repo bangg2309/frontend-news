@@ -40,9 +40,9 @@ const Profile = () => {
 
 
     if (!user) return (
-           <Container maxWidth={'md'}>
-                <Typography variant="h4" align="center" sx={{mt: 10}}>Vui lòng đăng nhập để xem thông tin cá nhân</Typography>
-            </Container>
+        <Container maxWidth={'md'}>
+            <Typography variant="h4" align="center" sx={{mt: 10}}>Vui lòng đăng nhập để xem thông tin cá nhân</Typography>
+        </Container>
     );
 
     return (

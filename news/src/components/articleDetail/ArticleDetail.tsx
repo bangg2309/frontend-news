@@ -139,7 +139,7 @@ const ArticleDetail: React.FC = () => {
                 <CommentBox/>
             </div>
             <div className="container__right">
-                <RelatedArticles articles={data.relatedArticle}/>
+                <RelatedArticles articles={data.relatedArticle} />
             </div>
         </div>
     );
