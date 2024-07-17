@@ -16,7 +16,7 @@ function App() {
     return (<div className={'relative'}>
             <Routes>
                 <Route path="/" element={<HomePage/>}>
-                    {/*<Route index element={<HomeContent/>}/>*/}
+                    <Route index element={<HomeContent/>}/>
                     <Route path={"/the-loai/:param"} element={<CategoryContent/>}/>
                     <Route path={"/bai-viet/:articleName"} element={<ArticleDetail/>}/>
                     <Route path={"/tai-khoan"} element={<Profile/>}>
