@@ -7,6 +7,7 @@ export const users = [
         phone: "0842314569",
         address: "Thủ Đức, TP.HCM",
         avatar: "https://i.ibb.co/3vSLgZS/avatar.jpg"
+
     },
     {
         id: 2,

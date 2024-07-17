@@ -61,7 +61,6 @@ const ArticleDetail: React.FC = () => {
                 <CommentBox />
             </div>
             <div className="container__right">
-                <ModeToggle />
                 <RelatedArticles articles={data.relatedArticle} />
             </div>
         </div>

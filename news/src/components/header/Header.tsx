@@ -19,6 +19,7 @@ import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {fetchLocate, fetchWeather} from "../../services/WeatherServices";
 import {Weather} from "../../interfaces/Weather";
+import Login from "../login/Login";
 
 const Search = styled('div')(({theme}) => ({
     position: 'relative',
