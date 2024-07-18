@@ -7,7 +7,7 @@ export const store = configureStore({
     reducer: {
         fullCategory: fullCategory.reducer,
         comments: commentsSlice.reducer,
-        auth: authSlice.reducer,
+        auth: authSlice.reducer
     }
 })
 

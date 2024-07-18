@@ -4,14 +4,14 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
 import {useDispatch, useSelector} from 'react-redux';
 import {RootState} from "../../redux/store/store";
-import {logout} from "../../redux/slice/authSlice";
 import {Outlet} from "react-router-dom";
+import authSlice from "../../redux/slice/authSlice";
 
 const Profile = () => {
     const dispatch = useDispatch();
     const {user} = useSelector((state: RootState) => state.auth);
     const handleLogout = () => {
-        dispatch(logout());
+        dispatch(authSlice.actions.logout());
     };
     const menuItems = [
         { text: "Thông tin chung" },
@@ -40,9 +40,9 @@ const Profile = () => {
 
 
     if (!user) return (
-           <Container maxWidth={'md'}>
-                <Typography variant="h4" align="center" sx={{mt: 10}}>Vui lòng đăng nhập để xem thông tin cá nhân</Typography>
-            </Container>
+        <Container maxWidth={'md'}>
+            <Typography variant="h4" align="center" sx={{mt: 10}}>Vui lòng đăng nhập để xem thông tin cá nhân</Typography>
+        </Container>
     );
 
     return (

@@ -3,7 +3,6 @@
 import {rssCategories} from "./rssCategories";
 import {RSSItem} from "../interfaces/RSSItem";
 export const getCategoryAllObject = (name:string) => {
-    console.log(name)
     return rssCategories.find((category) => {
         if (category.subType) {
             const subCategory = category.subType.find((sub) => sub.name === name);
