@@ -19,6 +19,7 @@ import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {fetchLocate, fetchWeather} from "../../services/WeatherServices";
 import {Weather} from "../../interfaces/Weather";
+import Login from "../login/Login";
 
 const Search = styled('div')(({theme}) => ({
     position: 'relative',
@@ -79,6 +80,9 @@ const Header: React.FC = () => {
     }
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
     useEffect(() => {
+        fetchWeather().then((data) => {
+            setWeathers(data);
+        })
         if (locate === '')
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition((position) => {
@@ -99,7 +103,7 @@ const Header: React.FC = () => {
                 setWeathers(data);
             })
 
-        }, 3000);
+        }, 30000);
         return () => {
             if (intervalRef.current) {
                 clearInterval(intervalRef.current);
@@ -162,20 +166,8 @@ const Header: React.FC = () => {
                         </Stack>
 
                         <Box sx={{flexGrow: 0, display: 'flex', width: {xs: {width: '100%'}, md: {width: 'auto'}}}}>
-                            <Button sx={{":hover": {color: MAIN_CONCEPT.main}}}>
-                                <Typography variant="body1"
-                                            sx={{
-                                                color: 'inherit',
-                                                fontWeight: 600,
-                                                display: {xs: 'none', md: 'flex'}
-                                            }}>
-                                    Đăng nhập
-                                </Typography>
-                                <FontAwesomeIcon style={{
-                                    color: "inherit",
-                                    margin: '0 5 0 5',
-                                }} size={'2x'} icon={faCircleUser}/>
-                            </Button>
+
+                           <Login/>
                             <TextField
                                 hiddenLabel
                                 id="filled-hidden-label-small"
