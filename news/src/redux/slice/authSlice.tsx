@@ -70,7 +70,7 @@ export default createSlice({
     initialState: {
         user: JSON.parse(sessionStorage.getItem('user') || 'null'),
         error: '',
-        isLogin: sessionStorage.getItem('isLogin') == 'true',
+        isLogin: sessionStorage.getItem('isLogin') === 'true',
     },
     reducers: {
         login: (state, action: PayloadAction<{ email: string; password: string }>) => {

@@ -9,7 +9,8 @@ const HorizonePost: React.FC<{
     NewsView: RSSItem, titleSize: string,
 }> = (props) => {
     return (
-        <Card sx={{boxShadow: 'unset', height: 'fit-content'}} className={"mb-2"} component={NavLink} to={props.NewsView.link}>
+        <Card sx={{boxShadow: 'unset', height: 'fit-content'}} className={"mb-2"} component={NavLink}
+              to={props.NewsView.link}>
             <CardActionArea>
                 <Stack direction={'row'}>
                     <CardMedia
@@ -29,8 +30,7 @@ const HorizonePost: React.FC<{
                 </Stack>
             </CardActionArea>
         </Card>
-    )
-        ;
+    );
 }
 
 export default HorizonePost;

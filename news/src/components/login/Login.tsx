@@ -24,7 +24,7 @@ import {getIsLogin} from "../../redux/selector/authSelector";
 const Login: React.FC = () => {
     const [open, setOpen] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
-    const isLogin= useSelector(getIsLogin);
+    const isLogin = useSelector(getIsLogin);
     const [showLogin, setShowLogin] = useState(true);
     // const [isLogin, setIsLogin] = useState();
     const [credentials, setCredentials] = useState({email: '', password: ''});
@@ -117,6 +117,11 @@ const Login: React.FC = () => {
         },
     };
 
+    function handleSavePost() {
+        navigate('/tai-khoan/bai-viet-da-luu');
+        handleMenuClose();
+    }
+
     return (
         <div>
             {!isLogin ? (
@@ -142,7 +147,7 @@ const Login: React.FC = () => {
                                   onClick={handleProfileRedirect}>Thông tin
                             chung</MenuItem>
                         <MenuItem sx={{":hover": {color: (theme) => theme.palette.grey[500]}}}
-                                  onClick={handleMenuClose}>Tin đã lưu</MenuItem>
+                                  onClick={handleSavePost}>Tin đã lưu</MenuItem>
                         <MenuItem sx={{":hover": {color: (theme) => theme.palette.grey[500]}}} onClick={handleLogout}>Đăng
                             xuất</MenuItem>
                     </Menu>
