@@ -171,7 +171,7 @@ const Login: React.FC = () => {
                         <Box sx={formStyle}>
                             <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', mb: 2}}>
                                 <Typography variant="h6" component="h2">
-                                    {isLogin ? 'Đăng nhập' : 'Đăng ký'}
+                                    {showLogin ? 'Đăng nhập' : 'Đăng ký'}
                                 </Typography>
                             </Box>
                             {showLogin ? (

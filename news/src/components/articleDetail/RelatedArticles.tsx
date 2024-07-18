@@ -47,13 +47,13 @@ const RelatedArticles: React.FC<RelatedArticlesProps> = ({articles}) => {
                 ))}
             </div>
             <div className="text-center mt-6">
-                <a href="/"
+                <Link to="/"
                    className="bg-transparent border-[1px] border-[#2d67ad] rounded-[50px] text-[#2d67ad] cursor-pointer font-sans font-bold text-[12px] px-[15px] py-[5px]"
                    title="Quay lại trang chủ">
                     <img className="mr-2 mb-0.5 inline-block"
                          src="https://static.vnncdn.net/v1/icon/icon-pre-bule-sm.png"/>
                     QUAY LẠI TRANG CHỦ
-                </a>
+                </Link>
             </div>
         </div>
         // </Typography>
