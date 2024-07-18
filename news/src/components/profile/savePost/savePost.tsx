@@ -14,7 +14,7 @@ const SavePost: React.FC = () => {
             {userSaveList.map((post, index) => {
                 return (
                     <Card sx={{boxShadow: 'unset', height: 'fit-content'}} className={"mb-2"} component={NavLink}
-                          to={post.link}>
+                          to={`/bai-viet/${post.link}`}>
                         <CardActionArea>
                             <Stack direction={'row'}>
                                 <CardMedia
