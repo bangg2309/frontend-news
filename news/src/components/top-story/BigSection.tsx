@@ -36,7 +36,7 @@ const BigSection: React.FC<{ item: RSSItem[] }> = ({ item }) => {
                         <Stack direction="column" spacing={2}>
                             {
                                 list2th.map((item, index) => (
-                                    <SectionTopStory2th item={item} key={index}/>
+                                    <SectionTopStory2th item={item} key={index} width={230} height={258}/>
                                 ))
                             }
                         </Stack>
@@ -44,7 +44,7 @@ const BigSection: React.FC<{ item: RSSItem[] }> = ({ item }) => {
                     <Grid item xs={3}>
                         <Stack>
                             {list3th.map((item, index) => (
-                                <SectionTopStory2th item={item} key={index}/>
+                                <SectionTopStory2th item={item} key={index} width={230} height={258}/>
                             ))}
                         </Stack>
                     </Grid>
