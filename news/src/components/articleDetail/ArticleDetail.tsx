@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {MouseEventHandler, useEffect, useState} from 'react';
 import BreadcrumbDetail from './BreadcrumbDetail';
 import ContentDetail from './ContentDetail';
 import AuthorDetail from './AuthorDetail';
@@ -21,6 +21,12 @@ import {
 import {MAIN_CONCEPT} from "../theme/theme";
 import {color} from "framer-motion";
 import {savePost, settingSavePost} from "../../interfaces/User";
+import {useSelector} from "react-redux";
+import {getIsLogin} from "../../redux/selector/authSelector";
+import {users} from "../../data/usersData";
+import {getCategory, getCategoryByName} from "../../services/GetData";
+import {fetchRSSData} from "../../services/rssService";
+import {Category} from "../../interfaces/Category";
 
 
 const ArticleDetail: React.FC = () => {
@@ -30,26 +36,62 @@ const ArticleDetail: React.FC = () => {
     const [data, setData] = useState<ArticleData | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [isSave, setIsSave] = useState<boolean>(false);
-    const handleChangeSave = () => {
-        savePost({
-            title: data?.title || '',
-            category: data?.category || '',
-            date: data?.time.substring(0, data?.time.indexOf(" ")) || ''
+    const isLogin = useSelector(getIsLogin);
+
+    const getThumb = (category: Category | null) => {
+        if (!category) return ''
+
+        let thumb = ''
+        if (category.subType) {
+            for (const sub of category.subType) {
+                fetchRSSData(category.rss).then((p) => {
+                    p.map((item) => {
+                        if (item.title === data?.title) {
+                            thumb = item.thumb;
+                            return
+                        }
+                    })
+                })
+                if (thumb) return thumb
+            }
+        }
+        fetchRSSData(category.rss).then((p) => {
+            p.map((item) => {
+                if (item.title === data?.title) {
+                    thumb = item.thumb;
+                    return
+                }
+            })
         })
-        setIsSave(!isSave);
+        return thumb;
+    }
+    const handleChangeSave = () => {
+        if (isLogin) {
+            savePost({
+                link: articleName || '',
+                title: data?.title || '',
+                category: getCategoryByName(data?.category.name || ''),
+                date: data?.time.substring(0, data?.time.indexOf(" ")) || '',
+                thumb: data?.thumb || ''
+            })
+            setIsSave(!isSave);
+        }
+        console.log(users)
     }
     const customIconBookmark = (isSave: boolean) => {
         if (isSave) {
-            return <Bookmark sx={{
-                padding: "5px",
-                color: MAIN_CONCEPT.main,
-                borderRadius: '50%',
-                transition: theme.transitions.create(['color'], {}),
-                '&:hover': {
-                    backgroundColor: MAIN_CONCEPT.main,
-                    color: 'white'
-                },
-            }} fontSize={'large'}/>
+            return <Bookmark
+                sx={{
+                    padding: "5px",
+                    color: MAIN_CONCEPT.main,
+                    borderRadius: '50%',
+                    transition: theme.transitions.create(['color'], {}),
+
+                    '&:hover': {
+                        backgroundColor: MAIN_CONCEPT.main,
+                        color: 'white'
+                    },
+                }} fontSize={'large'}/>
         } else {
             return <BookmarkBorderRounded sx={{
                 padding: "5px",
@@ -63,28 +105,32 @@ const ArticleDetail: React.FC = () => {
         }
     }
 
+
     useEffect(() => {
-        const fetchData = async () => {
-            setLoading(true);
-            if (articleName) {
-                try {
-                    const articleData = await fetchArticleData(articleName);
-                    setData(articleData);
-                    setIsSave(settingSavePost({
-                        title: articleData?.title || '',
-                        category: articleData?.category || '',
-                        date: articleData?.time.substring(0, articleData?.time.indexOf(" ")) || ''
-                    }));
-                } catch (error) {
-                    console.error('Error fetching article data:', error);
+            const fetchData = async () => {
+                setLoading(true);
+                if (articleName) {
+                    try {
+                        const articleData = await fetchArticleData(articleName);
+                        setIsSave(settingSavePost({
+                            link: articleName || '',
+                            title: articleData?.title || '',
+                            category: getCategoryByName(articleData?.category.name || ''),
+                            date: articleData?.time.substring(0, articleData?.time.indexOf(" ")) || ''
+                        }));
+                        setData(articleData);
+                    } catch
+                        (error) {
+                        console.error('Error fetching article data:', error);
+                    }
                 }
-            }
 
-            setLoading(false);
-        };
-
-        fetchData();
-    }, [articleName]);
+                setLoading(false);
+            };
+            fetchData();
+        }, [articleName]
+    )
+    ;
 
     if (loading || !data) {
         return (
@@ -106,7 +152,7 @@ const ArticleDetail: React.FC = () => {
     return (
         <div className="container gap-10 grid grid-cols-[1fr_300px] grid-rows-[auto] p-5">
             <div className="container__left">
-                <BreadcrumbDetail category={data.category} time={data.time}/>
+                <BreadcrumbDetail category={data.category.name} time={data.time}/>
                 <AuthorDetail author={data.author}/>
                 <Stack direction={'row'} spacing={1}>
                     <FacebookRoundedIcon sx={{
@@ -131,7 +177,9 @@ const ArticleDetail: React.FC = () => {
                             color: 'white'
                         }
                     }} fontSize={'large'}/>
-                    {customIconBookmark(isSave)}
+                    <Box onClick={handleChangeSave}>
+                        {customIconBookmark(isSave)}
+                    </Box>
                 </Stack>
                 <ContentDetail title={data.title} sapo={data.sapo}>
                     <ArticleContent articleContent={data.articleContent}/>
@@ -139,7 +187,7 @@ const ArticleDetail: React.FC = () => {
                 <CommentBox/>
             </div>
             <div className="container__right">
-                <RelatedArticles articles={data.relatedArticle} />
+                <RelatedArticles articles={data.relatedArticle}/>
             </div>
         </div>
     );

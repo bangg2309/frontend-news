@@ -17,23 +17,25 @@ import {faCircleUser, faEye, faEyeSlash, faXmark} from '@fortawesome/free-solid-
 import {faGoogle, faApple} from '@fortawesome/free-brands-svg-icons';
 import {RootState} from '../../redux/store/store';
 import {useDispatch, useSelector} from "react-redux";
-import {login, logout} from "../../redux/slice/authSlice";
+import authSlice from "../../redux/slice/authSlice";
 import {useNavigate} from "react-router-dom";
+import {getIsLogin} from "../../redux/selector/authSelector";
 
 const Login: React.FC = () => {
     const [open, setOpen] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
-    const [isLogin, setIsLogin] = useState(true);
+    const isLogin = useSelector(getIsLogin);
+    const [showLogin, setShowLogin] = useState(true);
+    // const [isLogin, setIsLogin] = useState();
     const [credentials, setCredentials] = useState({email: '', password: ''});
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const dispatch = useDispatch();
     const {user, error} = useSelector((state: RootState) => state.auth);
     const navigate = useNavigate();
-
     const handleOpen = () => setOpen(true);
     const handleClose = () => {
         setOpen(false);
-        setIsLogin(true); // Reset to login form when closing
+        setShowLogin(true); // Reset to login form when closing
         setAnchorEl(null); // Reset the anchorEl when modal is closed
     };
     const handleTogglePasswordVisibility = () => setShowPassword(!showPassword);
@@ -47,11 +49,12 @@ const Login: React.FC = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        dispatch(login(credentials));
+        dispatch(authSlice.actions.login(credentials));
     };
 
     const handleLogout = () => {
-        dispatch(logout());
+        dispatch(authSlice.actions.logout());
+        console.log('logout ', isLogin)
         handleMenuClose(); // Close the menu when user logs out
     };
 
@@ -114,9 +117,14 @@ const Login: React.FC = () => {
         },
     };
 
+    function handleSavePost() {
+        navigate('/tai-khoan/bai-viet-da-luu');
+        handleMenuClose();
+    }
+
     return (
         <div>
-            {!user ? (
+            {!isLogin ? (
                 <Button sx={{":hover": {color: '#2d67ad'}}} onClick={handleOpen}>
                     <Typography variant="body1"
                                 sx={{color: 'inherit', fontWeight: 600, display: {xs: 'none', md: 'flex'}}}>
@@ -139,7 +147,7 @@ const Login: React.FC = () => {
                                   onClick={handleProfileRedirect}>Thông tin
                             chung</MenuItem>
                         <MenuItem sx={{":hover": {color: (theme) => theme.palette.grey[500]}}}
-                                  onClick={handleMenuClose}>Tin đã lưu</MenuItem>
+                                  onClick={handleSavePost}>Tin đã lưu</MenuItem>
                         <MenuItem sx={{":hover": {color: (theme) => theme.palette.grey[500]}}} onClick={handleLogout}>Đăng
                             xuất</MenuItem>
                     </Menu>
@@ -166,7 +174,7 @@ const Login: React.FC = () => {
                                     {isLogin ? 'Đăng nhập' : 'Đăng ký'}
                                 </Typography>
                             </Box>
-                            {isLogin ? (
+                            {showLogin ? (
                                 <React.Fragment>
                                     <Box sx={{display: 'flex', justifyContent: 'space-between', mb: 2}}>
                                         <Button sx={{
@@ -242,7 +250,7 @@ const Login: React.FC = () => {
                                             Chưa có tài khoản? <a href="#" style={{
                                             textDecoration: 'underline',
                                             color: '#2d67ad'
-                                        }} onClick={() => setIsLogin(false)}>Đăng ký</a>
+                                        }} onClick={() => setShowLogin(false)}>Đăng ký</a>
                                         </Typography>
                                     </form>
                                 </React.Fragment>
@@ -312,7 +320,7 @@ const Login: React.FC = () => {
                                         <Typography variant="body2" align="center" sx={{mt: 2}}>
                                             Đã có tài khoản? <a href="#"
                                                                 style={{textDecoration: 'underline', color: '#2d67ad'}}
-                                                                onClick={() => setIsLogin(true)}>Đăng nhập</a>
+                                                                onClick={() => setShowLogin(true)}>Đăng nhập</a>
                                         </Typography>
                                     </form>
                                 </React.Fragment>

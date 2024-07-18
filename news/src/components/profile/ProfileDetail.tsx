@@ -2,7 +2,7 @@ import {Avatar, Box, Button, Container, Link, TextField, Typography} from "@mui/
 import React, {useState} from "react";
 import {User} from "../../interfaces/User";
 import {useDispatch} from "react-redux";
-import {updateUser} from "../../redux/slice/authSlice";
+import authSlice from "../../redux/slice/authSlice";
 
 const ProfileDetail = ({user}: { user: User }) => {
     const dispatch = useDispatch();
@@ -18,15 +18,15 @@ const ProfileDetail = ({user}: { user: User }) => {
 
     const handleSave = (field: string) => {
         setEditMode({...editMode, [field]: false});
-        dispatch(updateUser(editedUser));
+        dispatch(authSlice.actions.updateUser(editedUser));
     };
 
     const renderField = (label: string, field: string, type: string = 'text') => {
         const isPasswordField = field === 'password';
         return (
-            <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <Box sx={{mb: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
                 <Box>
-                    <Typography variant="body1" sx={{ mb: 1 }}>{label}</Typography>
+                    <Typography variant="body1" sx={{mb: 1}}>{label}</Typography>
                     {editMode[field] ? (
                         <TextField
                             type={isPasswordField ? 'password' : type}
@@ -41,9 +41,10 @@ const ProfileDetail = ({user}: { user: User }) => {
                     )}
                 </Box>
                 {editMode[field] ? (
-                    <Button variant="text" sx={{ textTransform: 'none' }} onClick={() => handleSave(field)}>Lưu</Button>
+                    <Button variant="text" sx={{textTransform: 'none'}} onClick={() => handleSave(field)}>Lưu</Button>
                 ) : (
-                    <Button variant="text" sx={{ textTransform: 'none' }} onClick={() => handleEdit(field)}>Thay đổi</Button>
+                    <Button variant="text" sx={{textTransform: 'none'}} onClick={() => handleEdit(field)}>Thay
+                        đổi</Button>
                 )}
             </Box>
         );
