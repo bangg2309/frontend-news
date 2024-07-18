@@ -1,22 +1,24 @@
-import React, {useEffect} from 'react';
-import {Avatar, Box, Container, Divider, Link, List, ListItem, ListItemText, Typography} from '@mui/material';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
-import {useDispatch, useSelector} from 'react-redux';
-import {RootState} from "../../redux/store/store";
-import {Outlet} from "react-router-dom";
+import React from 'react';
+import { Avatar, Box, Container, Divider, Link, List, ListItem, ListItemText, Typography } from '@mui/material';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from "../../redux/store/store";
+import { Outlet, useNavigate } from "react-router-dom";
 import authSlice from "../../redux/slice/authSlice";
 
 const Profile = () => {
     const dispatch = useDispatch();
-    const {user} = useSelector((state: RootState) => state.auth);
+    const navigate = useNavigate();
+    const { user } = useSelector((state: RootState) => state.auth);
+
     const handleLogout = () => {
         dispatch(authSlice.actions.logout());
     };
+
     const menuItems = [
-        { text: "Thông tin chung" },
-        { text: "Ý kiến của bạn (0)" },
-        { text: "Tin đã lưu" },
+        { text: "Thông tin chung", path: "/tai-khoan" },
+        { text: "Tin đã lưu", path: "/tai-khoan/bai-viet-da-luu" },
         { text: "Thoát", icon: <FontAwesomeIcon icon={faSignOutAlt} />, action: 'logout' }
     ];
 
@@ -38,16 +40,23 @@ const Profile = () => {
         </ListItem>
     );
 
+    const handleMenuItemClick = (item: any) => {
+        if (item.action === 'logout') {
+            handleLogout();
+        } else if (item.path) {
+            navigate(item.path);
+        }
+    };
 
     if (!user) return (
         <Container maxWidth={'md'}>
-            <Typography variant="h4" align="center" sx={{mt: 10}}>Vui lòng đăng nhập để xem thông tin cá nhân</Typography>
+            <Typography variant="h4" align="center" sx={{ mt: 10 }}>Vui lòng đăng nhập để xem thông tin cá nhân</Typography>
         </Container>
     );
 
     return (
         <Container maxWidth={'md'}>
-            <Box sx={{display: 'flex', p: 2}}>
+            <Box sx={{ display: 'flex', p: 2 }}>
                 <Box sx={{
                     width: '25%',
                     position: 'sticky',
@@ -58,8 +67,8 @@ const Profile = () => {
                     boxShadow: 'rgba(221, 221, 221, 0.6) 0 5px',
                     height: 'fit-content', // Ensures it doesn't take full height
                 }}>
-                    <Box sx={{display: 'flex', alignItems: 'center', mb: 2}}>
-                        <Avatar src={user.avatar} sx={{width: 56, height: 56}}/>
+                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                        <Avatar src={user.avatar} sx={{ width: 56, height: 56 }} />
                         <Box ml={2}>
                             <Typography variant="h6">{user.name || user.email.split('@')[0]}</Typography>
                         </Box>
@@ -70,7 +79,7 @@ const Profile = () => {
                                 <MenuItem
                                     text={item.text}
                                     icon={item.icon}
-                                    onClick={item.action === 'logout' ? handleLogout : undefined}
+                                    onClick={() => handleMenuItemClick(item)}
                                 />
                                 {index === menuItems.length - 2 && <Divider />}
                             </React.Fragment>
@@ -83,8 +92,7 @@ const Profile = () => {
                         </Typography>
                     </Box>
                 </Box>
-                <Outlet/>
-                {/*<ProfileDetail user={user}/>*/}
+                <Outlet />
             </Box>
         </Container>
     );

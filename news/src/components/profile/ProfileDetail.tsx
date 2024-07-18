@@ -1,24 +1,37 @@
-import {Avatar, Box, Button, Container, Link, TextField, Typography} from "@mui/material";
-import React, {useState} from "react";
-import {User} from "../../interfaces/User";
-import {useDispatch} from "react-redux";
+import { Avatar, Box, Button, Container, Link, TextField, Typography } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import authSlice from "../../redux/slice/authSlice";
+import { User } from "../../interfaces/User";
+import { RootState } from "../../redux/store/store";
 
-const ProfileDetail = ({user}: { user: User }) => {
+const ProfileDetail = () => {
     const dispatch = useDispatch();
+    const user = useSelector((state: RootState) => state.auth.user);
     const [editMode, setEditMode] = useState<{ [key: string]: boolean }>({});
-    const [editedUser, setEditedUser] = useState<User>(user);
+    const [editedUser, setEditedUser] = useState<User | null>(user);
+
+    useEffect(() => {
+        if (user) {
+            setEditedUser(user);
+        }
+    }, [user]);
+
     const handleEdit = (field: string) => {
         setEditMode({...editMode, [field]: true});
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, field: string) => {
-        setEditedUser({...editedUser, [field]: e.target.value});
+        if (editedUser) {
+            setEditedUser({...editedUser, [field]: e.target.value});
+        }
     };
 
     const handleSave = (field: string) => {
-        setEditMode({...editMode, [field]: false});
-        dispatch(authSlice.actions.updateUser(editedUser));
+        if (editedUser) {
+            setEditMode({...editMode, [field]: false});
+            dispatch(authSlice.actions.updateUser(editedUser));
+        }
     };
 
     const renderField = (label: string, field: string, type: string = 'text') => {
@@ -43,12 +56,15 @@ const ProfileDetail = ({user}: { user: User }) => {
                 {editMode[field] ? (
                     <Button variant="text" sx={{textTransform: 'none'}} onClick={() => handleSave(field)}>Lưu</Button>
                 ) : (
-                    <Button variant="text" sx={{textTransform: 'none'}} onClick={() => handleEdit(field)}>Thay
-                        đổi</Button>
+                    <Button variant="text" sx={{textTransform: 'none'}} onClick={() => handleEdit(field)}>Thay đổi</Button>
                 )}
             </Box>
         );
     };
+
+    if (!editedUser) {
+        return <Typography>Loading...</Typography>;
+    }
 
     return (
         <Container maxWidth="sm">
