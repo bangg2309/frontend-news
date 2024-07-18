@@ -10,7 +10,7 @@ const SavePost: React.FC = () => {
     const allSaveLists = JSON.parse(localStorage.getItem('saveLists') || '{}');
     const userSaveList: UserSavePost[] = allSaveLists[user?.email || ''] || [];
     return (
-        <><Stack sx={{margin:2}}>
+        <><Stack sx={{ml: 3,maxWidth: '760px'}}>
             {userSaveList.map((post, index) => {
                 return (
                     <Card sx={{boxShadow: 'unset', height: 'fit-content'}} className={"mb-2"} component={NavLink}
@@ -20,13 +20,13 @@ const SavePost: React.FC = () => {
                                 <CardMedia
                                     sx={{width: 220, margin: "16px"}}
                                     component="img"
-                                    image={post.thumb}
+                                    image={post.thumb === "" ? "https://image.tienphong.vn/w890/Uploaded/2024/nophoto.jpg" : post.thumb}
                                     alt={post.title}
                                 />
                                 <CardContent>
                                     <NewsType category={post.category}
                                               variant={"subtitle1"}/>
-                                    <TitlePage title={post.title} size={"h6"} url={post.link}/>
+                                    <TitlePage title={post.title} size={"h6"} url={`/bai-viet/${post.link}`}/>
                                     {/*<Typography variant="body2" color="text.secondary">*/}
                                     {/*    {props.NewsView.description.replace(/<[^>]*>/g, '')}*/}
                                     {/*</Typography>*/}
