@@ -1,18 +1,49 @@
 import axios from 'axios';
 import cheerio from 'cheerio';
 import {ArticleData, ContentItem, RelatedArticle} from "../interfaces/ArticleData";
+import {getCategoryByName} from "./GetData";
+import {Category} from "../interfaces/Category";
+import {fetchRSSData} from "./rssService";
 
 const BASE_URL = 'https://tienphong.vn/';
+const getThumb = async (category: Category | null, title: string): Promise<string> => {
+    if (!category) return '';
+    let thumb = '';
+
+    if (category.subType) {
+        for (const sub of category.subType) {
+            const data = await fetchRSSData(sub.rss);
+            for (const item of data) {
+                if (item.title === title) {
+                    thumb = item.thumb;
+                    return thumb;
+                }
+            }
+        }
+    }
+
+    const data = await fetchRSSData(category.rss);
+    for (const item of data) {
+        if (item.title === title) {
+            thumb = item.thumb;
+            return thumb;
+        }
+    }
+
+    return thumb;
+}
+
 const fetchArticleData = async (url: string): Promise<ArticleData | null> => {
+
     try {
         const crawlUrl = `${BASE_URL}${url}`
-
         const response = await axios.get(crawlUrl);
         const html = response.data;
         const $ = cheerio.load(html);
-
-        const category = $('.main-cate').text().trim();
+        const category = getCategoryByName($('.main-cate').text().trim());
         const title = $('h1').text().trim();
+        console.log(getThumb(category, title))
+        const thumb = await getThumb(category, title)
         const sapo = $('.article__sapo').text().trim();
         const authorName = $('.name').text().trim();
         const time = $('.time').text().trim();
@@ -52,7 +83,7 @@ const fetchArticleData = async (url: string): Promise<ArticleData | null> => {
                 });
             }
         });
-        return {title, sapo, category, author, time, articleContent, relatedArticle};
+        return {title, sapo, category, author, time, articleContent, relatedArticle, thumb};
     } catch (error) {
         console.error('Error fetching data:', error);
         return null;

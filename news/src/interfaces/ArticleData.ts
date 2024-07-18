@@ -1,3 +1,5 @@
+import {Category} from "./Category";
+
 interface TextContentItem {
     type: 'text';
     content: string;
@@ -24,11 +26,12 @@ interface Author {
 }
 
 export interface ArticleData {
-    category: string;
+    category: Category;
     title: string;
     time: string;
     articleContent: ContentItem[];
     sapo: string;
     relatedArticle: RelatedArticle[];
     author: Author;
+    thumb?:string
 }
