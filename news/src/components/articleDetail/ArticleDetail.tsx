@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {MouseEventHandler, useEffect, useState} from 'react';
 import BreadcrumbDetail from './BreadcrumbDetail';
 import ContentDetail from './ContentDetail';
 import AuthorDetail from './AuthorDetail';
@@ -40,16 +40,18 @@ const ArticleDetail: React.FC = () => {
     }
     const customIconBookmark = (isSave: boolean) => {
         if (isSave) {
-            return <Bookmark sx={{
-                padding: "5px",
-                color: MAIN_CONCEPT.main,
-                borderRadius: '50%',
-                transition: theme.transitions.create(['color'], {}),
-                '&:hover': {
-                    backgroundColor: MAIN_CONCEPT.main,
-                    color: 'white'
-                },
-            }} fontSize={'large'}/>
+            return <Bookmark
+                sx={{
+                    padding: "5px",
+                    color: MAIN_CONCEPT.main,
+                    borderRadius: '50%',
+                    transition: theme.transitions.create(['color'], {}),
+
+                    '&:hover': {
+                        backgroundColor: MAIN_CONCEPT.main,
+                        color: 'white'
+                    },
+                }} fontSize={'large'}/>
         } else {
             return <BookmarkBorderRounded sx={{
                 padding: "5px",
@@ -131,7 +133,9 @@ const ArticleDetail: React.FC = () => {
                             color: 'white'
                         }
                     }} fontSize={'large'}/>
-                    {customIconBookmark(isSave)}
+                    <Box onClick={handleChangeSave}>
+                        {customIconBookmark(isSave)}
+                    </Box>
                 </Stack>
                 <ContentDetail title={data.title} sapo={data.sapo}>
                     <ArticleContent articleContent={data.articleContent}/>
@@ -139,7 +143,7 @@ const ArticleDetail: React.FC = () => {
                 <CommentBox/>
             </div>
             <div className="container__right">
-                <RelatedArticles articles={data.relatedArticle} />
+                <RelatedArticles articles={data.relatedArticle}/>
             </div>
         </div>
     );

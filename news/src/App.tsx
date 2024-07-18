@@ -20,7 +20,7 @@ function App() {
                     <Route path={"/the-loai/:param"} element={<CategoryContent/>}/>
                     <Route path={"/bai-viet/:articleName"} element={<ArticleDetail/>}/>
                     <Route path={"/tai-khoan"} element={<Profile/>}>
-                        {/*<Route path={"/"} element={<ProfileDetail/>}/>*/}
+                        <Route path={"/"} element={<ProfileDetail/>}/>
                         <Route path={"bai-viet-da-luu"} element={<Profile/>}/>
                     </Route>
                     <Route path={"/tim-kiem"} element={<SearchContent/>}>

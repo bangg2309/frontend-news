@@ -48,19 +48,41 @@ export const isLogin = () => {
     }
     return false;
 }
-const getUser=()=>{
+const getUser = () => {
     const userId = sessionStorage.getItem('user')
     if (!userId) return null;
     return users.find((user) => user.id === Number.parseInt(userId))
 }
 
 export const savePost = (post: UserSavePost) => {
-    if(isLogin()){
+    if (isLogin()) {
         const userId = sessionStorage.getItem('user')
         if (!userId) return false;
-        const user= getUser();
-        if(!user) return false;
+        const user = getUser();
+        if (!user) return false;
+        if (!user.saveList) user.saveList = []
+        user.saveList?.map((savePost) => {
+            if (savePost.title === post.title) {
+                //delete
+                user.saveList?.splice(user.saveList.indexOf(savePost), 1)
+                return true;
+            }
+        })
         user.saveList?.push(post)
-        console.log(user.saveList)
+        return true;
     }
+}
+const checkIsSave = (post: UserSavePost) => {
+    if (isLogin()) {
+        const userId = sessionStorage.getItem('user')
+        if (!userId) return false;
+        const user = getUser();
+        if (!user) return false;
+        user.saveList?.map((savePost) => {
+            if (savePost.title === post.title) {
+                return true;
+            }
+        })
+    }
+    return false;
 }
