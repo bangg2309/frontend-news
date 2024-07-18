@@ -119,6 +119,9 @@ const ArticleDetail: React.FC = () => {
                             date: articleData?.time.substring(0, articleData?.time.indexOf(" ")) || ''
                         }));
                         setData(articleData);
+                        if (articleData) {
+                            document.title = articleData.title;
+                        }
                     } catch
                         (error) {
                         console.error('Error fetching article data:', error);
