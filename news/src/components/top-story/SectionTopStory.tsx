@@ -48,12 +48,12 @@ const SectionTopStory: React.FC<{ item: RSSItem[] }> = ({ item }) => {
                                 <Stack direction="row" spacing={2}>
                                     <Grid item xs={6}>
                                         {list1th.map((item, index) => (
-                                            <SectionTopStory2th item={item} key={index}/>
+                                            <SectionTopStory2th item={item} key={index} width={292} height={260}/>
                                         ))}
                                     </Grid>
                                     <Grid item xs={6}>
                                         {list2th.map((item, index) => (
-                                            <SectionTopStory2th item={item} key={index}/>
+                                            <SectionTopStory2th item={item} key={index} width={292} height={260}/>
                                         ))}
                                     </Grid>
                                 </Stack>
